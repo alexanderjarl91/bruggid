@@ -1,8 +1,10 @@
 import React from "react";
 import Beer from "./Beer"
 
-function Brewery() {
+function Brewery( {data}) {
+  console.log(data)
   return (
+    // hér möppum við í gegnum displayum html element fyrir hvern hlut í data fylkinu (muna að gera key={xxx.name} í parent div)
     <div>
       <img className="brewery__logo"src="http://www.borgbrugghus.is/Content/Customer/img/logo.svg" alt="borg"/>
       <h1 className="brewery__name">Borg Brugghús</h1>

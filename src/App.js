@@ -1,26 +1,28 @@
 import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import { Router, Route, Switch } from "react-router";
 import './App.css';
 import Brewery from './components/Brewery'
 
 function App() {
 
-  //state for breweries declared
-  const [breweries, setBreweries] = useState()
-  
-  // fetching data from Brugg API, should be passed down to children as props 
-  // EDIT: WORKING, BUT WHY DOES IT LOG "HAS MISSING DEPENDENCY"?
-  useEffect(function () {
-    async function getData() {
-      const url = "https://brugg-api.herokuapp.com/breweries";
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data)
-      setBreweries(data)
-      console.log(breweries)
-    }
-    getData()
-  }, [])
+  //STATES
+  //declare original state, never altered nor displayed
+  const [breweries, setBreweries] = useState([]) 
 
+  //declare filtered version of original state, this one is used for displaying
+  const [filteredBreweries, setFilteredBreweries] = useState([])
+
+  //Fetching data from Brugg API using axios and the useEffect hook. breweries state will be set to the data and passed through props to children
+  //SKOÐA WARNING UM CALLBACKS
+  useEffect(async () => {
+    const result = await axios('https://brugg-api.herokuapp.com/breweries');
+    setBreweries(result.data)
+    setFilteredBreweries(result.data)
+  }, []);
+
+
+  //returning components
   return (
     <div className="App">
       {/* Navbar */}
@@ -28,9 +30,11 @@ function App() {
       {/* Landing Page */}
 
       {/* Breweries */}
-      <Brewery />
+      <Brewery data={filteredBreweries} />
 
       {/* Brewery Map */}
+
+      {/* Footer */}
 
     </div>
   );
