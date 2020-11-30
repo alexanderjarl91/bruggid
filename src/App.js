@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 //import components
+import BreweryList from "./components/BreweryList"
 import Brewery from './components/Brewery';
 import Nav from './components/Nav';
 import Map from './components/Map';
+import Beer from './components/Beer';
 
 //import style
 import './App.css';
@@ -37,11 +39,11 @@ function App() {
   return (
     <Router>
       <div className="App">        
-        <Nav />
-        <Switch>
-        <Route path="/breweries" component={Brewery} />
-        <Route path="/" component={Map} />
         
+        <Switch>
+          <Route path="/breweries" component={BreweryList} />
+          <Route path="/beers" component={Beer} />
+          <Route path="/" exact component={Map} />
         </Switch>
       </div>
     </Router>

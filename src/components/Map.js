@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Nav from './Nav';
 
 function Map() {
     return (
         <div>
-           MAP COMPONENT
+           <h1>MAP</h1>
+           <h1>BREWERIES NEAR YOU</h1>
+            <Nav />
         </div>
     )
 }
