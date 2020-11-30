@@ -1,12 +1,22 @@
+//import libraries
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { Router, Route, Switch } from "react-router";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
+//import components
+import Brewery from './components/Brewery';
+import Nav from './components/Nav';
+import Map from './components/Map';
+
+//import style
 import './App.css';
-import Brewery from './components/Brewery'
+
+
 
 function App() {
-
   //STATES
+
   //declare original state, never altered nor displayed
   const [breweries, setBreweries] = useState([]) 
 
@@ -19,24 +29,22 @@ function App() {
     const result = await axios('https://brugg-api.herokuapp.com/breweries');
     setBreweries(result.data)
     setFilteredBreweries(result.data)
+    console.log(result.data)
   }, []);
 
 
   //returning components
   return (
-    <div className="App">
-      {/* Navbar */}
-
-      {/* Landing Page */}
-
-      {/* Breweries */}
-      <Brewery data={filteredBreweries} />
-
-      {/* Brewery Map */}
-
-      {/* Footer */}
-
-    </div>
+    <Router>
+      <div className="App">        
+        <Nav />
+        <Switch>
+        <Route path="/breweries" component={Brewery} />
+        <Route path="/" component={Map} />
+        
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
