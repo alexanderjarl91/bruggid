@@ -9,6 +9,10 @@ function BreweryListItem({ data }) {
           <img src={brewery.logoSrc} alt="" />
           <h3>{brewery.name}</h3>
           <h4>{brewery.address}</h4>
+          <h4>{brewery.type}</h4>
+          <h4 className="brewerylistitem__beerCount">
+            {brewery.catalog.length}
+          </h4>
         </div>
       ))}
     </>

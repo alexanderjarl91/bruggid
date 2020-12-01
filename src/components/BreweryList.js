@@ -10,7 +10,7 @@ function BreweryList() {
   //declare filtered version of original state, this one is used for displaying
   const [filteredBreweries, setFilteredBreweries] = useState([]);
 
-  //Fetching data from Brugg API using axios and the useEffect hook. breweries state will be set to the data and passed through props to children
+  //Fetching data from Brugg API with the useEffect hook. breweries state will be set to the data and passed through props to children
   useEffect(() => {
     async function fetchData() {
       try {
