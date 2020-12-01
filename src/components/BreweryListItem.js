@@ -13,6 +13,15 @@ function BreweryListItem({ data }) {
           <h4 className="brewerylistitem__beerCount">
             {brewery.catalog.length}
           </h4>
+          <a href={brewery.instagramUrl}>instagram</a>
+
+          {/* DETAILED VIEW */}
+          <a href={`https://google.com/maps/@${brewery.latitude},${brewery.longitude},15z`}>
+            <img src="https://img.icons8.com/plasticine/2x/google-maps.png" width="30px" alt=""/>
+            </a>
+          <a href={brewery.facebookUrl}>facebook</a>
+          <a href={brewery.instagramUrl}>instagram</a>
+          
         </div>
       ))}
     </>
