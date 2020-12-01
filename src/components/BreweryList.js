@@ -43,20 +43,33 @@ function BreweryList() {
 //SORT FUNCTIONS
 function sortAZ() {
   const filteredBreweriesCopy = filteredBreweries.slice(0);
-  //
+  // if a.name is higher in alphabet, send it up in the array
   filteredBreweriesCopy.sort((a, b) => a.name > b.name ? 1 : -1)
   setFilteredBreweries(filteredBreweriesCopy)
 }
 
 function sortZA() {
   const filteredBreweriesCopy = filteredBreweries.slice(0);
-  //
+  // if a.name is higher in alphabet, send it down in the array
   filteredBreweriesCopy.sort((a, b) => a.name > b.name ? -1 : 1)
   setFilteredBreweries(filteredBreweriesCopy)
 }
 
+function sortBeerCount() {
+  const filteredBreweriesCopy = filteredBreweries.slice(0);
+  filteredBreweriesCopy.sort((a, b) => a.catalog.length > b.catalog.length ? -1 : 1)
+  setFilteredBreweries(filteredBreweriesCopy)
 
-//split method with %, parseInt the array
+}
+
+function sortEstablished() {
+  const filteredBreweriesCopy = filteredBreweries.slice(0);
+  filteredBreweriesCopy.sort((a, b) => a.established > b.established ? 1 : -1)
+  setFilteredBreweries(filteredBreweriesCopy)
+}
+
+
+
 
 
   return (
@@ -72,6 +85,8 @@ function sortZA() {
             />
       <Sort sortAZ={sortAZ}
             sortZA={sortZA}
+            sortBeerCount={sortBeerCount}
+            sortEstablished={sortEstablished}
         />
       <ul>
         <BreweryListItem data={filteredBreweries} />
