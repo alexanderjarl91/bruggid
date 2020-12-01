@@ -7,8 +7,8 @@ import Nav from "./Nav";
 function Map() {
   // Access token, style id and user name set in .env variable here for now. Need to find
   // another way later because this .env file will be included in the build and will not stay hidden.
-  const mapboxUrl = `https://api.mapbox.com/styles/v1/${process.env.REACT_APP_USER_NAME}/${process.env.REACT_APP_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_ACCESS_TOKEN}`;
 
+  const mapboxUrl = `https://api.mapbox.com/styles/v1/${process.env.REACT_APP_USER_NAME}/${process.env.REACT_APP_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_ACCESS_TOKEN}`;
   // Icon constructor for map marker
   const beerIcon = new Icon({
     iconUrl: beer,

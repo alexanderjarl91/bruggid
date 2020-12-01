@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 function BeerList() {
+  const [beers, setBeers] = useState([]);
+  const [filteredBeers, setFilteredBeers] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        let response = await fetch("https://brugg-api.herokuapp.com/breweries");
+        response = await response.json();
+        setBeers(response);
+        setFilteredBeers(response);
+        console.log(response);
+      } catch (err) {
+        alert(err);
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <div>
-      <Link to="/"><button>back</button></Link>
+      <Link to="/">
+        <button>back</button>
+      </Link>
       <input type="text" />
       <ul>
         <li>beer 1</li>
