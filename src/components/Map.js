@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaf
 import { Icon } from "leaflet";
 import beer from "../img/beer-bottle.svg";
 import location from "../img/location-icon.svg";
+import Nav from "./Nav";
 
 function Map() {
     const userName = "bjorgg";
@@ -64,8 +65,9 @@ function Map() {
             </Marker>
             <LocationMarker />
         </MapContainer>
+        <Nav />
     </div>
-    )
+  );
 }
 
-export default Map
+export default Map;
