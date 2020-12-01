@@ -21,6 +21,8 @@ function BeerList() {
     fetchData();
   }, []);
 
+  //split array with split method with % as parameter, parseInt the array to sort by ABV%
+
   return (
     <div>
       <Link to="/">

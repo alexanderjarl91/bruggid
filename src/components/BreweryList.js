@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import BreweryListItem from "./BreweryListItem";
 import Nav from "./Nav";
+import Sort from "./Sort";
 
 function BreweryList() {
   //declare original state, never altered nor displayed
@@ -28,6 +29,7 @@ function BreweryList() {
   //search bar
   function filterData(e) {
     const text = e.target.value
+    //filter through data from input value text. values and data uppercased so searchbar is not case sensitive.
     const searchValueData = breweries.filter((brewery) => (
       brewery.name && brewery.name.toUpperCase().includes(text.toUpperCase())) || 
       (brewery.address && brewery.address.toUpperCase().includes(text.toUpperCase())))
@@ -37,6 +39,25 @@ function BreweryList() {
     setFilteredBreweries(searchValueData);
     console.log(searchValueData)
 }
+
+//SORT FUNCTIONS
+function sortAZ() {
+  const filteredBreweriesCopy = filteredBreweries.slice(0);
+  //
+  filteredBreweriesCopy.sort((a, b) => a.name > b.name ? 1 : -1)
+  setFilteredBreweries(filteredBreweriesCopy)
+}
+
+function sortZA() {
+  const filteredBreweriesCopy = filteredBreweries.slice(0);
+  //
+  filteredBreweriesCopy.sort((a, b) => a.name > b.name ? -1 : 1)
+  setFilteredBreweries(filteredBreweriesCopy)
+}
+
+
+//split method with %, parseInt the array
+
 
   return (
     <div>
@@ -49,6 +70,9 @@ function BreweryList() {
              onChange={filterData} 
             // onKeyPress={handleEnterKeyPressed}
             />
+      <Sort sortAZ={sortAZ}
+            sortZA={sortZA}
+        />
       <ul>
         <BreweryListItem data={filteredBreweries} />
         {/* this should show modal on click */}
