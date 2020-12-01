@@ -25,12 +25,30 @@ function BreweryList() {
     fetchData();
   }, []);
 
+  //search bar
+  function filterData(e) {
+    const text = e.target.value
+    const searchValueData = breweries.filter((brewery) => (
+      brewery.name && brewery.name.toUpperCase().includes(text.toUpperCase())) || 
+      (brewery.address && brewery.address.toUpperCase().includes(text.toUpperCase())))
+
+
+    console.log(text);
+    setFilteredBreweries(searchValueData);
+    console.log(searchValueData)
+}
+
   return (
     <div>
       <Link to="/">
         <button>back</button>
       </Link>
-      <input type="text" />
+      <input className="input" 
+            type="text" 
+            placeholder="Search for breweries" 
+             onChange={filterData} 
+            // onKeyPress={handleEnterKeyPressed}
+            />
       <ul>
         <BreweryListItem data={filteredBreweries} />
         {/* this should show modal on click */}
