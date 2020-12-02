@@ -34,9 +34,7 @@ function Map() {
     // Set data to breweries.
     .then(data => setBreweries(data))
     // Catching errors
-    .catch(error => {
-        console.error(error);
-    });
+    .catch(error => console.error(error))
     }, [])
 
     // Icon constructor for map marker
@@ -52,23 +50,6 @@ function Map() {
     iconSize: [35, 35],
   });
 
-  // const [zoom, setZoom] = useState()
-
-  function LocationMarker() {
-    const [position, setPosition] = useState(null);
-    const map = useMapEvents({
-      click() {
-        map.locate();
-      },
-      locationfound(e) {
-        setPosition(e.latlng);
-        // Check if possible to make zoom and fly smoother
-        map.setZoom(13);
-        map.flyTo(e.latlng, map.getZoom());
-      },
-    });
-
-    
     function handleMapCreated(map) {
       setTimeout(() => {
         map.locate()
@@ -93,7 +74,7 @@ function Map() {
           </Marker>
         )
       }
-
+    
     return (
     <div id='mapid'>
         <MapContainer center={[64.9841821, -18.1059013]} zoom={6} scrollWheelZoom={false} whenCreated={handleMapCreated}>
