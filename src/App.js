@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Map from "./components/Map";
 import BeerList from "./components/BeerList";
 import BreweryList from "./components/BreweryList";
+import Brewery from "./components/Brewery";
 
 //import style
 import "./App.css";
@@ -34,9 +35,10 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/breweries" component={BreweryList} />
+          <Route path="/breweries" exact component={BreweryList} />
           <Route path="/beers" component={BeerList} />
           <Route path="/" exact component={Map} />
+          <Route path="/breweries/id" component={Brewery} />
         </Switch>
       </div>
     </Router>

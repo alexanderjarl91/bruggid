@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+//import components
 import Nav from "./Nav";
 import BeerListItem from "./BeerListItem";
+
+//import styled components
+import { BackBtn } from "./styled/index";
 
 function BeerList() {
   const [beers, setBeers] = useState([]);
@@ -38,7 +43,7 @@ function BeerList() {
   return (
     <div>
       <Link to="/">
-        <button>back</button>
+        <BackBtn>back</BackBtn>
       </Link>
       <input
         className="input"
