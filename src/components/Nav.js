@@ -9,10 +9,10 @@ function Nav() {
     <div>
       <NavContainer>
         <Link to="/beers">
-          <NavButton>Beers</NavButton>
+          <NavButton>BEERS</NavButton>
         </Link>
         <Link to="/breweries">
-          <NavButton>Breweries</NavButton>
+          <NavButton>BREWERIES</NavButton>
         </Link>
       </NavContainer>
     </div>

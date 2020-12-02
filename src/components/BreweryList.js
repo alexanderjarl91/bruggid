@@ -6,7 +6,8 @@ import Sort from "./Sort";
 
 //import styled components
 import { BackBtn } from "./styled/index";
-import {} from "./styled/listStyled";
+import { SearchBar, HeaderContainer } from "./styled/SearchBarStyled";
+import {ListHeader, ListHeaderText} from "./styled/listStyled"
 
 function BreweryList() {
   //declare original state, never altered nor displayed
@@ -80,23 +81,28 @@ function BreweryList() {
 
   return (
     <div>
-      <Link to="/">
-        <BackBtn />
-      </Link>
-      <input
-        className="input"
-        type="text"
-        placeholder="Search for breweries"
-        onChange={filterData}
-        // onKeyPress={handleEnterKeyPressed}
-      />
+      <HeaderContainer>
+        <Link to="/">
+          <BackBtn />
+        </Link>
+        <SearchBar
+          className="input"
+          type="text"
+          placeholder="Search for breweries.."
+          onChange={filterData}
+          // onKeyPress={handleEnterKeyPressed}
+        />
+      </HeaderContainer>
       <Sort
         sortAZ={sortAZ}
         sortZA={sortZA}
         sortBeerCount={sortBeerCount}
         sortEstablished={sortEstablished}
       />
-
+      <ListHeader>
+        <ListHeaderText>Breweries</ListHeaderText>
+        <ListHeaderText>Beer Count:</ListHeaderText>
+      </ListHeader>
       <BreweryListItem data={filteredBreweries} />
       {/* this should show modal on click */}
 

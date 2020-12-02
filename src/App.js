@@ -8,6 +8,7 @@ import Map from "./components/Map";
 import BeerList from "./components/BeerList";
 import BreweryList from "./components/BreweryList";
 import Brewery from "./components/Brewery";
+import Nav from "./components/Nav";
 
 //import style
 import "./App.css";

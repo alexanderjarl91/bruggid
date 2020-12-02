@@ -1,7 +1,14 @@
 import React from "react";
 
 //import styled components
-import { ListItem, ListImage, NameAndTypeContainer } from "./styled/listStyled";
+import {
+  ListItem,
+  ListImage,
+  NameAndTypeContainer,
+  RightValue,
+  Name,
+  Type,
+} from "./styled/listStyled";
 
 function BeerListItem({ data }) {
   return (
@@ -11,10 +18,10 @@ function BeerListItem({ data }) {
         <ListItem key={beer.name} className="brewlistitem__brewery">
           <ListImage src={beer.img} alt="" />
           <NameAndTypeContainer>
-            <h3>{beer.name}</h3>
-            <p>{beer.type}</p>
+            <Name>{beer.name}</Name>
+            <Type>{beer.type}</Type>
           </NameAndTypeContainer>
-          <h4>{beer.abv}</h4>
+          <RightValue>{beer.abv}</RightValue>
         </ListItem>
       ))}
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 //import styled components
@@ -33,7 +33,7 @@ function BreweryListItem({ data }) {
               <Name>{brewery.name}</Name>
               <Type>{brewery.type}</Type>
             </NameAndTypeContainer>
-            <RightValue>Beer Count: {brewery.catalog.length}</RightValue>
+            <RightValue>{brewery.catalog.length}</RightValue>
           </ListItem>
         </Link>
       ))}

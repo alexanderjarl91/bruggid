@@ -7,7 +7,9 @@ import BeerListItem from "./BeerListItem";
 import Sort from "./Sort";
 
 //import styled components
-import { BackBtn } from "./styled/index";
+import { BackBtn } from "./styled";
+import { HeaderContainer, SearchBar } from "./styled/SearchBarStyled";
+import { ListHeader, ListHeaderText } from "./styled/listStyled";
 
 function BeerList() {
   const [beers, setBeers] = useState([]);
@@ -58,20 +60,24 @@ function BeerList() {
 
   return (
     <div>
-      <Link to="/">
-        <BackBtn></BackBtn>
-      </Link>
-      <input
-        className="input"
-        type="text"
-        placeholder="Search for breweries"
-        onChange={filterBeers}
-        // onKeyPress={handleEnterKeyPressed}
-      />
+      <HeaderContainer>
+        <Link to="/">
+          <BackBtn></BackBtn>
+        </Link>
+        <SearchBar
+          className="input"
+          type="text"
+          placeholder="Search for beers.."
+          onChange={filterBeers}
+          // onKeyPress={handleEnterKeyPressed}
+        />
+      </HeaderContainer>
       <Sort sortAZ={sortAZ} sortZA={sortZA} />
-      <ul>
-        <BeerListItem data={filteredBeers} />
-      </ul>
+      <ListHeader>
+        <ListHeaderText>Beers</ListHeaderText>
+        <ListHeaderText>ABV</ListHeaderText>
+      </ListHeader>
+      <BeerListItem data={filteredBeers} />
 
       <Nav />
     </div>
