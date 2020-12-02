@@ -5,7 +5,8 @@ import Nav from "./Nav";
 import Sort from "./Sort";
 
 //import styled components
-import { BackBtn } from "./styled";
+import { BackBtn } from "./styled/index";
+import {} from "./styled/listStyled";
 
 function BreweryList() {
   //declare original state, never altered nor displayed
@@ -80,7 +81,7 @@ function BreweryList() {
   return (
     <div>
       <Link to="/">
-        <BackBtn>Back</BackBtn>
+        <BackBtn />
       </Link>
       <input
         className="input"
@@ -95,10 +96,9 @@ function BreweryList() {
         sortBeerCount={sortBeerCount}
         sortEstablished={sortEstablished}
       />
-      <ul>
-        <BreweryListItem data={filteredBreweries} />
-        {/* this should show modal on click */}
-      </ul>
+
+      <BreweryListItem data={filteredBreweries} />
+      {/* this should show modal on click */}
 
       <Nav />
     </div>

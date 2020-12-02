@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 //import components
 import Nav from "./Nav";
 import BeerListItem from "./BeerListItem";
+import Sort from "./Sort";
 
 //import styled components
 import { BackBtn } from "./styled/index";
@@ -38,12 +39,27 @@ function BeerList() {
     setFilteredBeers(searchValueData);
   }
 
+  //SORT FUNCTIONS
+  function sortAZ() {
+    const filteredBeersCopy = filteredBeers.slice(0);
+    // if a.name is higher in alphabet, send it up in the array
+    filteredBeersCopy.sort((a, b) => (a.name > b.name ? 1 : -1));
+    setFilteredBeers(filteredBeersCopy);
+  }
+
+  function sortZA() {
+    const filteredBeersCopy = filteredBeers.slice(0);
+    // if a.name is higher in alphabet, send it down in the array
+    filteredBeersCopy.sort((a, b) => (a.name > b.name ? -1 : 1));
+    setFilteredBeers(filteredBeersCopy);
+  }
+
   //split array with split method with % as parameter, parseInt the array to sort by ABV%
 
   return (
     <div>
       <Link to="/">
-        <BackBtn>back</BackBtn>
+        <BackBtn></BackBtn>
       </Link>
       <input
         className="input"
@@ -52,6 +68,7 @@ function BeerList() {
         onChange={filterBeers}
         // onKeyPress={handleEnterKeyPressed}
       />
+      <Sort sortAZ={sortAZ} sortZA={sortZA} />
       <ul>
         <BeerListItem data={filteredBeers} />
       </ul>

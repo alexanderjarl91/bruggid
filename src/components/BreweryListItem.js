@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 //import styled components
-import { ListItem } from "./styled/beerListStyled";
+import {
+  ListItem,
+  ListImage,
+  NameAndTypeContainer,
+  Name,
+  Type,
+  RightValue,
+} from "./styled/listStyled";
 
 function BreweryListItem({ data }) {
   //Toggle data in or out with function
@@ -13,22 +20,21 @@ function BreweryListItem({ data }) {
   //     const tempArray = [...toggleInfo];
   //     tempArray[i] = !tempArray[i]
   //     setToggleInfo(tempArray)
-  //   }
+  //   }{/* {toggleInfo[i] && <h4>{brewery.address}</h4> } */}
   //
 
   return (
     <>
       {data.map((brewery, i) => (
         <Link to="/breweries/id">
-          <div key={brewery.id} className="brewlistitem__brewery">
-            <img src={brewery.logoSrc} alt="" />
-            <h3>{brewery.name}</h3>
-            {/* {toggleInfo[i] && <h4>{brewery.address}</h4> } */}
-            <h4>{brewery.type}</h4>
-            <h4 className="brewerylistitem__beerCount">
-              Beer Count: {brewery.catalog.length}
-            </h4>
-          </div>
+          <ListItem key={brewery.id} className="brewlistitem__brewery">
+            <ListImage src={brewery.logoSrc} alt="" />
+            <NameAndTypeContainer>
+              <Name>{brewery.name}</Name>
+              <Type>{brewery.type}</Type>
+            </NameAndTypeContainer>
+            <RightValue>Beer Count: {brewery.catalog.length}</RightValue>
+          </ListItem>
         </Link>
       ))}
     </>
