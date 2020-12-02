@@ -1,8 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import React, { useState, useEffect } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMapEvents,
+} from "react-leaflet";
 import { Icon } from "leaflet";
 import beer from "../img/beer-bottle.svg";
 import location from "../img/location-icon.svg";
+
+//import components
+import { BackBtn } from "./styled/index";
+import BeersNearYou from "./BeersNearYou";
+import BeerOfTheDay from "./BeerOfTheDay";
 import Nav from "./Nav";
 
 function Map() {
@@ -35,10 +46,26 @@ function Map() {
         iconSize: [55, 55]
     });
 
-    // Icon constructor for map marker
-    const locationIcon = new Icon({
-        iconUrl: location,
-        iconSize: [35, 35]
+  // Icon constructor for map marker
+  const locationIcon = new Icon({
+    iconUrl: location,
+    iconSize: [35, 35],
+  });
+
+  // const [zoom, setZoom] = useState()
+
+  function LocationMarker() {
+    const [position, setPosition] = useState(null);
+    const map = useMapEvents({
+      click() {
+        map.locate();
+      },
+      locationfound(e) {
+        setPosition(e.latlng);
+        // Check if possible to make zoom and fly smoother
+        map.setZoom(13);
+        map.flyTo(e.latlng, map.getZoom());
+      },
     });
 
     
@@ -95,14 +122,3 @@ function Map() {
 }
 
 export default Map;
-
-
-// {data.map((brewery) => (
-//   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
-//   {/* Breyta staðsetningu á popup miðað við marker */}
-//   <Popup>
-//       <img src={brewery.logoSrc} alt="" />
-//       <strong>{brewery.name}</strong> <br /> {brewery.address}
-//   </Popup>
-// </Marker>
-// ))}

@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+//import components
 import Nav from "./Nav";
 import BeerListItem from "./BeerListItem";
+import Sort from "./Sort";
+
+//import styled components
+import { BackBtn } from "./styled";
+import { HeaderContainer, SearchBar } from "./styled/SearchBarStyled";
+import { ListHeader, ListHeaderText } from "./styled/listStyled";
 
 function BeerList() {
   const [beers, setBeers] = useState([]);
@@ -33,23 +41,43 @@ function BeerList() {
     setFilteredBeers(searchValueData);
   }
 
+  //SORT FUNCTIONS
+  function sortAZ() {
+    const filteredBeersCopy = filteredBeers.slice(0);
+    // if a.name is higher in alphabet, send it up in the array
+    filteredBeersCopy.sort((a, b) => (a.name > b.name ? 1 : -1));
+    setFilteredBeers(filteredBeersCopy);
+  }
+
+  function sortZA() {
+    const filteredBeersCopy = filteredBeers.slice(0);
+    // if a.name is higher in alphabet, send it down in the array
+    filteredBeersCopy.sort((a, b) => (a.name > b.name ? -1 : 1));
+    setFilteredBeers(filteredBeersCopy);
+  }
+
   //split array with split method with % as parameter, parseInt the array to sort by ABV%
 
   return (
     <div>
-      <Link to="/">
-        <button>back</button>
-      </Link>
-      <input
-        className="input"
-        type="text"
-        placeholder="Search for breweries"
-        onChange={filterBeers}
-        // onKeyPress={handleEnterKeyPressed}
-      />
-      <ul>
-        <BeerListItem data={filteredBeers} />
-      </ul>
+      <HeaderContainer>
+        <Link to="/">
+          <BackBtn></BackBtn>
+        </Link>
+        <SearchBar
+          className="input"
+          type="text"
+          placeholder="Search for beers.."
+          onChange={filterBeers}
+          // onKeyPress={handleEnterKeyPressed}
+        />
+      </HeaderContainer>
+      <Sort sortAZ={sortAZ} sortZA={sortZA} />
+      <ListHeader>
+        <ListHeaderText>Beers</ListHeaderText>
+        <ListHeaderText>ABV</ListHeaderText>
+      </ListHeader>
+      <BeerListItem data={filteredBeers} />
 
       <Nav />
     </div>
