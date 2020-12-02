@@ -26,7 +26,7 @@ function App() {
     const result = await axios("https://brugg-api.herokuapp.com/breweries");
     setBreweries(result.data);
     setFilteredBreweries(result.data);
-    console.log(result.data);
+    console.log(result.data); 
   }, []);
 
   //returning components
