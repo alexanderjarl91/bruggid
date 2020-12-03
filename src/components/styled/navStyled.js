@@ -1,30 +1,19 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
   position: fixed;
   bottom: 0;
-  background-color: #f8513d;
+  background-color: ${props => props.theme.accent};
+  height: 12.5vh;
   width: 100%;
-  height: 5rem;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 20px 20px 0 0;
+
+  display: flex;
   align-items: center;
+  padding: 0 12px;
 `;
 
-export const NavButton = styled.button`
-  font-family: "Rubik", sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  letter-spacing: 5%; // virkar ekki
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 16px;
-  width: 150px;
-  padding: 10px 0;
-
-  &:hover {
-    color: white;
-    background-color: black;
-  }
+export const ButtonContainer = styled.div`
+  width: 100%;
+  margin: 0 12px;
 `;

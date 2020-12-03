@@ -13,6 +13,11 @@ import Nav from "./components/Nav";
 //import style
 import "./App.css";
 
+//import theme
+import { ThemeProvider } from "styled-components";
+import * as orange from "./components/styled/theme/orange";
+
+
 function App() {
   //STATES
 
@@ -34,14 +39,16 @@ function App() {
   //returning components
   return (
     <Router>
-      <div className="App">
-        <Switch>
-          <Route path="/breweries" exact component={BreweryList} />
-          <Route path="/beers" component={BeerList} />
-          <Route path="/" exact component={Map} />
-          <Route path="/breweries/id" component={Brewery} />
-        </Switch>
-      </div>
+      <ThemeProvider theme={orange}>
+        <div className="App">
+          <Switch>
+            <Route path="/breweries" exact component={BreweryList} />
+            <Route path="/beers" component={BeerList} />
+            <Route path="/" exact component={Map} />
+            <Route path="/breweries/id" component={Brewery} />
+          </Switch>
+        </div>
+      </ThemeProvider>
     </Router>
   );
 }
