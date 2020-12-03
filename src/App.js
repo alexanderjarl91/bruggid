@@ -36,18 +36,29 @@ function App() {
     setFilteredBreweries(result.data);
   }, []);
 
+  // Loading default true
+  const [loading, setLoading] = useState(true);
+
+  // Changes to false after 2.5 seconds
+  setTimeout(() => {
+    setLoading(false)
+  }, 2500);
+
   //returning components
   return (
     <Router>
       <ThemeProvider theme={orange}>
         <div className="App">
+        {/* Ternary operator that renders loader if loading === true but the switch element if loading === false */}
+        {loading ? 
+          <Loader/> :
           <Switch>
             <Route path="/breweries" exact component={BreweryList} />
             <Route path="/beers" component={BeerList} />
             <Route path="/" exact component={Map} />
-            {/* <Route path="/" exact component={Loader} /> */}
             <Route path="/breweries/:breweryName" component={BreweryDetails} />
           </Switch>
+          }
         </div>
       </ThemeProvider>
     </Router>
