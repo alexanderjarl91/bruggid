@@ -32,7 +32,7 @@ export const MainSortButton = styled.button`
 `;
 
 export const SortButtonsContainer = styled.div`
-  background-color: red;
+  background-color: ${(props) => props.theme.accent};
   border-radius: 0px 0px 15px 15px;
 `;
 

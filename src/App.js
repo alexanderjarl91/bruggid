@@ -7,8 +7,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Map from "./components/Map";
 import BeerList from "./components/BeerList";
 import BreweryList from "./components/BreweryList";
-import Brewery from "./components/Brewery";
+//import Brewery from "./components/Brewery";
 import Nav from "./components/Nav";
+import BreweryDetails from "./components/BreweryDetails";
 
 //import style
 import "./App.css";
@@ -16,7 +17,6 @@ import "./App.css";
 //import theme
 import { ThemeProvider } from "styled-components";
 import * as orange from "./components/styled/theme/orange";
-
 
 function App() {
   //STATES
@@ -33,7 +33,6 @@ function App() {
     const result = await axios("https://brugg-api.herokuapp.com/breweries");
     setBreweries(result.data);
     setFilteredBreweries(result.data);
-    console.log(result.data); 
   }, []);
 
   //returning components
@@ -45,7 +44,7 @@ function App() {
             <Route path="/breweries" exact component={BreweryList} />
             <Route path="/beers" component={BeerList} />
             <Route path="/" exact component={Map} />
-            <Route path="/breweries/id" component={Brewery} />
+            <Route path="/breweries/:breweryName" component={BreweryDetails} />
           </Switch>
         </div>
       </ThemeProvider>
