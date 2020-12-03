@@ -26,10 +26,9 @@ function Map() {
     const [breweries, setBreweries] = useState([]);
 
     useEffect(() => {
-    // Fetch from the Brugg API. Fetch() method returns a promise.
+    // Fetch from the Brugg API.
     fetch("https://brugg-api.herokuapp.com/breweries")
-    // Then() methods to handle the promise. The promise will resolve into a response object
-    // Return json method to handle the respective type of data.
+    // Return json.
     .then(r=>r.json())
     // Set data to breweries.
     .then(data => setBreweries(data))
@@ -37,6 +36,8 @@ function Map() {
     .catch(error => console.error(error))
     }, [])
 
+    console.log(breweries)
+    
     // Icon constructor for map marker
     const beerIcon = new Icon({
         iconUrl: beer,
@@ -51,9 +52,9 @@ function Map() {
   });
 
     function handleMapCreated(map) {
-      setTimeout(() => {
-        map.locate()
-      }, 3000);
+        setTimeout(() => {
+          map.locate()
+        }, 3000); 
     }
 
     // Setting a marker and fly to your location if allowed
@@ -74,7 +75,7 @@ function Map() {
           </Marker>
         )
       }
-    
+
     return (
     <div id='mapid'>
         <MapContainer center={[64.9841821, -18.1059013]} zoom={6} scrollWheelZoom={false} whenCreated={handleMapCreated}>
@@ -82,24 +83,33 @@ function Map() {
                 attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> 
                 contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, 
                 Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
-                url= {mapboxUrl}
-                
+                url= {mapboxUrl} 
             />
-            {breweries.map((brewery) => (
-              <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
-              {/* Breyta staðsetningu á popup miðað við marker */}
-              <Popup>
-                  <img src={brewery.logoSrc} alt="" />
-                  <strong>{brewery.name}</strong> <br /> {brewery.address}
-              </Popup>
-            </Marker>
-            ))}
-         
-            <LocationMarker />
+            
+            {(breweries && breweries.length > 0) 
+              ? breweries.map((brewery) => (
+                <div key={brewery.id}>
+                  <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
+                  {/* Breyta staðsetningu á popup miðað við marker */}
+                  <Popup>
+                      <img src={brewery.logoSrc} alt="" />
+                      <strong>{brewery.name}</strong> <br /> {brewery.address}
+                  </Popup>
+                  </Marker>
+                </div>
+                ))
+              : ''
+            }
+
+            {(breweries && breweries.length > 0) 
+              ? <LocationMarker />
+              : '' }
+          
         </MapContainer>
         <Nav />
     </div>
   );
+  
 }
 
 export default Map;
