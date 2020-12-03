@@ -10,6 +10,7 @@ import BreweryList from "./components/BreweryList";
 //import Brewery from "./components/Brewery";
 import Nav from "./components/Nav";
 import BreweryDetails from "./components/BreweryDetails";
+import Loader from "./components/Loader";
 
 //import style
 import "./App.css";
@@ -44,6 +45,7 @@ function App() {
             <Route path="/breweries" exact component={BreweryList} />
             <Route path="/beers" component={BeerList} />
             <Route path="/" exact component={Map} />
+            {/* <Route path="/" exact component={Loader} /> */}
             <Route path="/breweries/:breweryName" component={BreweryDetails} />
           </Switch>
         </div>

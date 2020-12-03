@@ -31,4 +31,6 @@ export const Button = styled.button`
         box-shadow: 0 0 0 #2a2a2a;
     }
 
+    ${'' /* if {} */}
+
 `;
