@@ -26,7 +26,7 @@ function BreweryListItem({ data }) {
   return (
     <>
       {data.map((brewery, i) => (
-        <Link to="/breweries/id">
+        <Link to={`/breweries/${brewery.name}`}>
           <ListItem key={brewery.id} className="brewlistitem__brewery">
             <ListImage src={brewery.logoSrc} alt="" />
             <NameAndTypeContainer>

@@ -32,13 +32,13 @@ function Map() {
     useEffect(() => {
     // Fetch from the Brugg API.
     fetch("https://brugg-api.herokuapp.com/breweries")
-    // Return json.
-    .then(r=>r.json())
-    // Set data to breweries.
-    .then(data => setBreweries(data))
-    // Catching errors
-    .catch(error => console.error(error))
-    }, [])
+      // Return json.
+      .then((r) => r.json())
+      // Set data to breweries.
+      .then((data) => setBreweries(data))
+      // Catching errors
+      .catch((error) => console.error(error));
+  }, []);
 
     console.log(breweries)
     
@@ -56,30 +56,30 @@ function Map() {
     iconSize: [25, 25],
   });
 
-    function handleMapCreated(map) {
-        setTimeout(() => {
-          map.locate()
-        }, 3000); 
-    }
+  function handleMapCreated(map) {
+    setTimeout(() => {
+      map.locate();
+    }, 3000);
+  }
 
-    // Setting a marker and fly to your location if allowed
-    function LocationMarker() {
-        const map = useMapEvents({
-        
-          locationfound(e) {
-            setPosition(e.latlng)
-            // Check if possible to make zoom and fly smoother
-            map.setZoom(12)
-            map.flyTo(e.latlng, map.getZoom())
-          },
-        })
+  // Setting a marker and fly to your location if allowed
+  function LocationMarker() {
+      const map = useMapEvents({
       
-        return position === null ? null : (
-          <Marker position={position} icon={locationIcon}>
-            <Popup>You are here</Popup>
-          </Marker>
-        )
-      }
+        locationfound(e) {
+          setPosition(e.latlng)
+          // Check if possible to make zoom and fly smoother
+          map.setZoom(12)
+          map.flyTo(e.latlng, map.getZoom())
+        },
+      });
+    
+      return position === null ? null : (
+        <Marker position={position} icon={locationIcon}>
+          <Popup>You are here</Popup>
+        </Marker>
+      );
+  }
 
     return (
     <div id='mapid'>
@@ -98,14 +98,13 @@ function Map() {
                   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
                   {/* Breyta staðsetningu á popup miðað við marker */}
                   <Popup>
-                      <img src={brewery.logoSrc} alt="" />
-                      <strong>{brewery.name}</strong> <br /> {brewery.address}
+                    <img src={brewery.logoSrc} alt="" />
+                    <strong>{brewery.name}</strong> <br /> {brewery.address}
                   </Popup>
-                  </Marker>
-                </div>
-                ))
-              : ''
-            }
+                </Marker>
+              </div>
+            ))
+          : ""}
 
             {(breweries && breweries.length > 0) 
               ? <LocationMarker />
@@ -116,7 +115,6 @@ function Map() {
         <Nav />
     </div>
   );
-  
 }
 
 export default Map;

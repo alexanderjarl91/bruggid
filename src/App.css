@@ -49,6 +49,8 @@ ul {
   padding: 0;
 }
 
+/* Map stuff */
+
 #mapid {
   width: 100%;
   height: 50vh;
@@ -58,4 +60,35 @@ ul {
 .leaflet-container {
   height: 100%;
   width: 100%;
+}
+
+/* Loader styles */
+
+.loadingbottle {
+  height: 100%;
+}
+
+.bottlefill {
+  fill: #f8513d;
+
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+
+  animation: mask-up 1250ms ease-in-out 500ms forwards;
+  -webkit-animation: mask-up 1250ms ease-in-out 500ms forwards;
+}
+
+.bottleoutline {
+  fill: #fff;
+}
+
+@keyframes mask-up {
+  from {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }
