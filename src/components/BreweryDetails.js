@@ -17,6 +17,7 @@ function BreweryDetails({ match }) {
       try {
         let response = await fetch("https://brugg-api.herokuapp.com/breweries");
         response = await response.json();
+        console.log(match.params.breweryName, response, 'asdfasdf')
         let foundBrewery = response.find(
           (brewery) => brewery.name === match.params.breweryName
         );
@@ -27,7 +28,7 @@ function BreweryDetails({ match }) {
       }
     }
     fetchData();
-  }, []);
+  }, [match.params.breweryName]);
   //find item in array that has name = match.params.breweryName
 
   return (

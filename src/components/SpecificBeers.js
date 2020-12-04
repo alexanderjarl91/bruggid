@@ -20,7 +20,7 @@ function SpecificBeers({ beers }) {
         <ListHeaderText>ABV</ListHeaderText>
       </ListHeader>
 
-      {beers
+      {beers && beers.catalog
         ? beers.catalog.map((beer) => (
             <ListItem key={beer.beerName} className="brewlistitem__brewery">
               <ListImage src={beer.beerImg} alt="" />

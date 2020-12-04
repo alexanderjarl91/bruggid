@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
 
 //import styled components
 import {
@@ -10,6 +11,24 @@ import {
   Type,
   RightValue,
 } from "./styled/listStyled";
+
+const StyledBreweryInfo = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+`;
+
+const StyledBreweryLogo = styled.div`
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  img {
+    max-width: 60px;
+  }
+`;
 
 function BreweryListItem({ data }) {
   //Toggle data in or out with function
@@ -28,11 +47,15 @@ function BreweryListItem({ data }) {
       {data.map((brewery, i) => (
         <Link to={`/breweries/${brewery.name}`}>
           <ListItem key={brewery.id} className="brewlistitem__brewery">
-            <ListImage src={brewery.logoSrc} alt="" />
-            <NameAndTypeContainer>
-              <Name>{brewery.name}</Name>
-              <Type>{brewery.type}</Type>
-            </NameAndTypeContainer>
+            <StyledBreweryInfo>
+              <StyledBreweryLogo>
+                <img src={brewery.logoSrc} alt="" />
+              </StyledBreweryLogo>
+              <NameAndTypeContainer>
+                <Name>{brewery.name}</Name>
+                <Type>{brewery.type}</Type>
+              </NameAndTypeContainer>
+            </StyledBreweryInfo>  
             <RightValue>{brewery.catalog.length}</RightValue>
           </ListItem>
         </Link>

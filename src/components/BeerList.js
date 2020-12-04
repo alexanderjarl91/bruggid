@@ -75,7 +75,6 @@ function BeerList() {
       <Sort sortAZ={sortAZ} sortZA={sortZA} />
       <ListHeader>
         <ListHeaderText>Beers</ListHeaderText>
-        <ListHeaderText>ABV</ListHeaderText>
       </ListHeader>
       <BeerListItem data={filteredBeers} />
 
