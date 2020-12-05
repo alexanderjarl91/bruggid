@@ -66,6 +66,12 @@ const StyledBeerDropdown = styled.div`
   }
 `;
 
+export const filterOutDuplicateBeers = beers => beers.filter((beer, index, self) =>
+          index === self.findIndex((t) => (
+            t.beerName === beer.beerName && t.beerABV === beer.beerABV
+          ))
+        );
+
 // creating a beer object, extra parameter of not showing link
 function BeerListItem({ beers = [], showBreweryLink = true }) {
   const [expanded, setExpanded] = useState(false)

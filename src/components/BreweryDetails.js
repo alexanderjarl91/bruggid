@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //import components
-import BeerListItem from "./BeerListItem";
+import BeerListItem, {filterOutDuplicateBeers} from "./BeerListItem";
 //import styled components
 import { BackBtn } from "./styled/index";
 import {
@@ -70,7 +70,7 @@ function BreweryDetails({ match }) {
         </LinkContainer>
       </InfoContainer>
       {/* Listing beers after brewery, without link */}
-      <BeerListItem beers={brewery.catalog} showBreweryLink={false} />
+      <BeerListItem beers={filterOutDuplicateBeers(brewery.catalog)} showBreweryLink={false} />
     </div>
   );
 }

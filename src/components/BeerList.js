@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 //import components
 import Nav from "./Nav";
-import BeerListItem from "./BeerListItem";
+import BeerListItem, {filterOutDuplicateBeers} from "./BeerListItem";
 import SortBeers from "./SortBeers";
 
 //import styled components
@@ -20,13 +20,12 @@ function BeerList() {
       try {
         let response = await fetch("https://brugg-api.herokuapp.com/breweries");
         const breweries = await response.json();
-        let allBeers = breweries.map(brewery => brewery.catalog.map(beer => ({...beer, breweryName: brewery.name}))).flat();
-        // todo ætti að vera lagað í api
-        allBeers = allBeers.filter((beer, index, self) =>
-          index === self.findIndex((t) => (
-            t.beerName === beer.beerName && t.beerABV === beer.beerABV
-          ))
-        );
+        
+        // todo duplicate ætti að vera lagað í api
+        const allBeers = filterOutDuplicateBeers(breweries.map(brewery => 
+            brewery.catalog.map(beer => ({...beer, breweryName: brewery.name}))
+          ).flat());
+
         setBeers(allBeers);
         setFilteredBeers(allBeers);
         console.log({allBeers});
