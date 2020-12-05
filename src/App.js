@@ -1,6 +1,5 @@
 //import libraries
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //import components
@@ -8,7 +7,6 @@ import Map from "./components/Map";
 import BeerList from "./components/BeerList";
 import BreweryList from "./components/BreweryList";
 //import Brewery from "./components/Brewery";
-import Nav from "./components/Nav";
 import BreweryDetails from "./components/BreweryDetails";
 import Loader from "./components/Loader";
 
@@ -20,28 +18,12 @@ import { ThemeProvider } from "styled-components";
 import * as orange from "./components/styled/theme/orange";
 
 function App() {
-  //STATES
-
-  //declare original state, never altered nor displayed
-  const [breweries, setBreweries] = useState([]);
-
-  //declare filtered version of original state, this one is used for displaying
-  const [filteredBreweries, setFilteredBreweries] = useState([]);
-
-  //Fetching data from Brugg API using axios and the useEffect hook. breweries state will be set to the data and passed through props to children
-  //SKOÐA WARNING UM CALLBACKS
-  useEffect(async () => {
-    const result = await axios("https://brugg-api.herokuapp.com/breweries");
-    setBreweries(result.data);
-    setFilteredBreweries(result.data);
-  }, []);
-
   // Loading default true
   const [loading, setLoading] = useState(true);
 
   // Changes to false after 2.5 seconds
   setTimeout(() => {
-    setLoading(false)
+    setLoading(false);
   }, 2500);
 
   //returning components
@@ -49,16 +31,20 @@ function App() {
     <Router>
       <ThemeProvider theme={orange}>
         <div className="App">
-        {/* Ternary operator that renders loader if loading === true but the switch element if loading === false */}
-        {loading ? 
-          <Loader/> :
-          <Switch>
-            <Route path="/breweries" exact component={BreweryList} />
-            <Route path="/beers" component={BeerList} />
-            <Route path="/" exact component={Map} />
-            <Route path="/breweries/:breweryName" component={BreweryDetails} />
-          </Switch>
-          }
+          {/* Ternary operator that renders loader if loading === true but the switch element if loading === false */}
+          {loading ? (
+            <Loader />
+          ) : (
+            <Switch>
+              <Route path="/breweries" exact component={BreweryList} />
+              <Route path="/beers" component={BeerList} />
+              <Route path="/" exact component={Map} />
+              <Route
+                path="/breweries/:breweryName"
+                component={BreweryDetails}
+              />
+            </Switch>
+          )}
         </div>
       </ThemeProvider>
     </Router>

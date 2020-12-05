@@ -25,7 +25,7 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  background: red;
+  background: #F8513D;
   border-radius: 18px 18px 0px 0px;
   justify-content: center;
   text-align: left;
