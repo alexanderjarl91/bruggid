@@ -9,7 +9,7 @@ import SortBeers from "./SortBeers";
 //import styled components
 import { BackBtn } from "./styled";
 import { HeaderContainer, SearchBar } from "./styled/SearchBarStyled";
-import { ListHeader, ListHeaderText } from "./styled/listStyled";
+import { ListHeader, ListHeaderText, ListContainer } from "./styled/listStyled";
 
 function BeerList() {
   const [beers, setBeers] = useState([]);
@@ -94,8 +94,9 @@ function BeerList() {
       <ListHeader>
         <ListHeaderText>Beers</ListHeaderText>
       </ListHeader>
-      <BeerListItem data={filteredBeers} />
-
+      <ListContainer>
+        <BeerListItem data={filteredBeers} />
+      </ListContainer>
       <Nav />
     </div>
   );
