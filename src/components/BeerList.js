@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 //import components
 import Nav from "./Nav";
 import BeerListItem from "./BeerListItem";
-import Sort from "./Sort";
+import SortBeers from "./SortBeers";
 
 //import styled components
 import { BackBtn } from "./styled";
@@ -44,16 +44,29 @@ function BeerList() {
   //SORT FUNCTIONS
   function sortAZ() {
     const filteredBeersCopy = filteredBeers.slice(0);
-    // if a.name is higher in alphabet, send it up in the array
     filteredBeersCopy.sort((a, b) => (a.name > b.name ? 1 : -1));
     setFilteredBeers(filteredBeersCopy);
   }
 
   function sortZA() {
     const filteredBeersCopy = filteredBeers.slice(0);
-    // if a.name is higher in alphabet, send it down in the array
     filteredBeersCopy.sort((a, b) => (a.name > b.name ? -1 : 1));
     setFilteredBeers(filteredBeersCopy);
+  }
+
+  function sortType() {
+    const filteredBeersCopy = filteredBeers.slice(0);
+    filteredBeersCopy.sort((a, b) => (a.type > b.type ? 1 : -1));
+    setFilteredBeers(filteredBeersCopy);
+  }
+
+  function sortABV() {
+    const filteredBeersCopy = filteredBeers.slice(0);
+    filteredBeersCopy.sort((a, b) =>
+      parseFloat(a.abv) > parseFloat(b.abv) ? -1 : 1
+    );
+    setFilteredBeers(filteredBeersCopy);
+    console.log(parseFloat(filteredBeersCopy[0].abv));
   }
 
   //split array with split method with % as parameter, parseInt the array to sort by ABV%
@@ -72,7 +85,12 @@ function BeerList() {
           // onKeyPress={handleEnterKeyPressed}
         />
       </HeaderContainer>
-      <Sort sortAZ={sortAZ} sortZA={sortZA} />
+      <SortBeers
+        sortAZ={sortAZ}
+        sortZA={sortZA}
+        sortType={sortType}
+        sortABV={sortABV}
+      />
       <ListHeader>
         <ListHeaderText>Beers</ListHeaderText>
       </ListHeader>

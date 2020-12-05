@@ -13,6 +13,7 @@ import {
 
 function SpecificBeers({ beers }) {
   console.log(beers.catalog);
+
   return (
     <>
       <ListHeader>
@@ -32,16 +33,6 @@ function SpecificBeers({ beers }) {
             </ListItem>
           ))
         : "finding beers"}
-      {/* {beers.catalog.map((beer) => (
-        <ListItem key={beer.beerName} className="brewlistitem__brewery">
-          <ListImage src={beer.beerImg} alt="" />
-          <NameAndTypeContainer>
-            <Name>{beer.beerName}</Name>
-            <Type>{beer.beerType}</Type>
-          </NameAndTypeContainer>
-          <RightValue>{beer.beerABV}</RightValue>
-        </ListItem>
-      ))} */}
     </>
   );
 }
