@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {ReactComponent as Arrow} from '../img/arrow.svg';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import { ReactComponent as Arrow } from "../img/arrow.svg";
+import styled from "styled-components";
 
 //import styled components
 import {
@@ -36,7 +36,6 @@ const StyledBeerInfo = styled.div`
   gap: 1rem;
 `;
 
-
 const StyledBeerDropdown = styled.div`
   display: flex;
   flex-direction: column;
@@ -46,18 +45,18 @@ const StyledBeerDropdown = styled.div`
   overflow: hidden;
 
   &.expanded {
-    max-height: 200px; 
+    max-height: 250px;
     opacity: 1;
     transition: max-height 600ms ease, opacity 200ms ease;
   }
   &.collapsed {
-    max-height: 0; 
+    max-height: 0;
     opacity: 0;
     transition: max-height 300ms ease, opacity 200ms ease 100ms;
   }
-  
+
   a {
-    color: #F8513D;
+    color: #f8513d;
     font-family: rubik;
     font-weight: bold;
     font-size: 14px;
@@ -85,7 +84,7 @@ function BeerListItem({ beers = [], showBreweryLink = true }) {
                 <Type>{`${beerABV} / ${beerVol} / ${beerType}`}</Type>
               </NameAndTypeContainer>
             </StyledBeerInfo>
-            <StyledArrow className={expanded === i ? 'arrowUp' : 'arrowDown'}/>
+            <StyledArrow className={expanded === i ? "arrowUp" : "arrowDown"} />
           </StyledBeerItem>
           
           {/* Description dropdown and link */}

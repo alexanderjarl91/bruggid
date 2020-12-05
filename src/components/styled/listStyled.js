@@ -17,6 +17,11 @@ export const ListHeaderText = styled.div`
   margin: 1rem 2rem;
 `;
 
+export const ListContainer = styled.div`
+  height: 500px;
+  overflow: scroll;
+`;
+
 export const ListItem = styled.div`
   display: flex;
   flex-direction: column;

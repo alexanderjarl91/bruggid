@@ -7,7 +7,7 @@ import Sort from "./Sort";
 //import styled components
 import { BackBtn } from "./styled/index";
 import { SearchBar, HeaderContainer } from "./styled/SearchBarStyled";
-import {ListHeader, ListHeaderText} from "./styled/listStyled"
+import { ListContainer, ListHeader, ListHeaderText } from "./styled/listStyled";
 
 function BreweryList() {
   //declare original state, never altered nor displayed
@@ -101,10 +101,11 @@ function BreweryList() {
       />
       <ListHeader>
         <ListHeaderText>Breweries</ListHeaderText>
-        <ListHeaderText>Beer Count:</ListHeaderText>
+        <ListHeaderText>Beers:</ListHeaderText>
       </ListHeader>
-      <BreweryListItem data={filteredBreweries} />
-      {/* this should show modal on click */}
+      <ListContainer>
+        <BreweryListItem data={filteredBreweries} />
+      </ListContainer>
 
       <Nav />
     </div>

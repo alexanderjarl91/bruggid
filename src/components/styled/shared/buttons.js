@@ -11,7 +11,7 @@ export const Button = styled.button`
     width: 100%;
 
     appearance: none;
-    height: 64px;
+    height: 56px;
     width: 100%;
 
     font-weight: bold;
