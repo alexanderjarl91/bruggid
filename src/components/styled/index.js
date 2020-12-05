@@ -7,7 +7,7 @@ export const BackBtn = styled.button`
   height: 67px;
   margin-right: 1rem;
   background-color: #2a2a2a;
-  background-image: url("https://svgshare.com/i/RzB.svg");
+  background-image: url("https://svgshare.com/i/S2b.svg");
   background-repeat: no-repeat;
   z-index: 999;
   &:hover {
