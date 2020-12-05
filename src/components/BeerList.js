@@ -18,11 +18,18 @@ function BeerList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let response = await fetch("https://brugg-api.herokuapp.com/beers");
-        response = await response.json();
-        setBeers(response);
-        setFilteredBeers(response);
-        console.log(response);
+        let response = await fetch("https://brugg-api.herokuapp.com/breweries");
+        const breweries = await response.json();
+        let allBeers = breweries.map(brewery => brewery.catalog.map(beer => ({...beer, breweryName: brewery.name}))).flat();
+        // todo ætti að vera lagað í api
+        allBeers = allBeers.filter((beer, index, self) =>
+          index === self.findIndex((t) => (
+            t.beerName === beer.beerName && t.beerABV === beer.beerABV
+          ))
+        );
+        setBeers(allBeers);
+        setFilteredBeers(allBeers);
+        console.log({allBeers});
       } catch (err) {
         alert(err);
       }
@@ -36,7 +43,7 @@ function BeerList() {
     //filter through data from input value text. values and data uppercased so searchbar is not case sensitive.
     const searchValueData = beers.filter(
       (beer) =>
-        beer.name && beer.name.toUpperCase().includes(text.toUpperCase())
+        beer.beerName && beer.beerName.toUpperCase().includes(text.toUpperCase())
     );
     setFilteredBeers(searchValueData);
   }
@@ -44,29 +51,29 @@ function BeerList() {
   //SORT FUNCTIONS
   function sortAZ() {
     const filteredBeersCopy = filteredBeers.slice(0);
-    filteredBeersCopy.sort((a, b) => (a.name > b.name ? 1 : -1));
+    filteredBeersCopy.sort((a, b) => (a.beerName > b.beerName ? 1 : -1));
     setFilteredBeers(filteredBeersCopy);
   }
 
   function sortZA() {
     const filteredBeersCopy = filteredBeers.slice(0);
-    filteredBeersCopy.sort((a, b) => (a.name > b.name ? -1 : 1));
+    filteredBeersCopy.sort((a, b) => (a.beerName > b.beerName ? -1 : 1));
     setFilteredBeers(filteredBeersCopy);
   }
 
   function sortType() {
     const filteredBeersCopy = filteredBeers.slice(0);
-    filteredBeersCopy.sort((a, b) => (a.type > b.type ? 1 : -1));
+    filteredBeersCopy.sort((a, b) => (a.beerType > b.beerType ? 1 : -1));
     setFilteredBeers(filteredBeersCopy);
   }
 
   function sortABV() {
     const filteredBeersCopy = filteredBeers.slice(0);
     filteredBeersCopy.sort((a, b) =>
-      parseFloat(a.abv) > parseFloat(b.abv) ? -1 : 1
+      parseFloat(a.beerABV) > parseFloat(b.beerABV) ? -1 : 1
     );
     setFilteredBeers(filteredBeersCopy);
-    console.log(parseFloat(filteredBeersCopy[0].abv));
+    console.log(parseFloat(filteredBeersCopy[0].beerABV));
   }
 
   //split array with split method with % as parameter, parseInt the array to sort by ABV%
@@ -94,7 +101,8 @@ function BeerList() {
       <ListHeader>
         <ListHeaderText>Beers</ListHeaderText>
       </ListHeader>
-      <BeerListItem data={filteredBeers} />
+      {/* listing all beers */}
+      <BeerListItem beers={filteredBeers} />
 
       <Nav />
     </div>

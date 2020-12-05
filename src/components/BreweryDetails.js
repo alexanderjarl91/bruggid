@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //import components
-import SpecificBeers from "./SpecificBeers";
+import BeerListItem from "./BeerListItem";
 //import styled components
 import { BackBtn } from "./styled/index";
 import {
@@ -16,7 +16,7 @@ import {
 } from "./styled/breweryDetailsStyled";
 
 function BreweryDetails({ match }) {
-  const [brewery, setBrewery] = useState({});
+  const [brewery, setBrewery] = useState({catalog: []});
 
   useEffect(() => {
     async function fetchData() {
@@ -69,7 +69,8 @@ function BreweryDetails({ match }) {
           </a>
         </LinkContainer>
       </InfoContainer>
-      <SpecificBeers beers={brewery} />
+      {/* Listing beers after brewery, without link */}
+      <BeerListItem beers={brewery.catalog} showBreweryLink={false} />
     </div>
   );
 }

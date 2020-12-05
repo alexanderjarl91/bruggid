@@ -14,7 +14,6 @@ import {
 
 const StyledArrow = styled(Arrow)`
 transition: all .2s ease-in-out; 
-
 &.arrowUp {
     transform: scaleX(-1);
   }
@@ -68,33 +67,35 @@ const StyledBeerDropdown = styled.div`
   }
 `;
 
-
-function BeerListItem({ data }) {
+// creating a beer object, extra parameter of not showing link
+function BeerListItem({ beers = [], showBreweryLink = true }) {
   const [expanded, setExpanded] = useState(false)
   useEffect(() => {
     setExpanded(null);
-  }, [data]);
+  }, [beers]);
   return (
     <>
-      {/* ATH: value-in verða að hafa if statement á length því annars reynir react að rendera áður en hann fetchar og þá crashar síðan */}
-      {data.map((beer, i) => (
-        <ListItem key={beer.name} className="brewlistitem__brewery">
+      {beers.map(({beerName, beerABV, beerImg, beerType, beerVol, beerDescription, breweryName}, i) => (
+        <ListItem key={`${beerName}_${beerABV}`} className="brewlistitem__brewery">
           <StyledBeerItem onClick={ () => setExpanded(i === expanded ? null : i)  }>
             <StyledBeerInfo>
-              <ListImage src={beer.img} alt="" />
+              <ListImage src={beerImg} alt="" />
               <NameAndTypeContainer>
-                <Name>{beer.name}</Name>
-                <Type>{`${beer.abv} / ${beer.vol} / ${beer.type}`}</Type>
+                <Name>{beerName}</Name>
+                <Type>{`${beerABV} / ${beerVol} / ${beerType}`}</Type>
               </NameAndTypeContainer>
             </StyledBeerInfo>
             <StyledArrow className={expanded === i ? 'arrowUp' : 'arrowDown'}/>
           </StyledBeerItem>
           
+          {/* Description dropdown and link */}
           <StyledBeerDropdown className={expanded === i ? 'expanded' : 'collapsed'}>
-          <Type>{beer.about}</Type>
-            <span>
-              <a href={`/breweries/${beer.brewery}`}><Type>{beer.brewery}</Type></a>
-            </span>
+          <Type>{beerDescription}</Type>
+            {showBreweryLink && 
+              <span>
+                <a href={`/breweries/${breweryName}`}><Type>{breweryName}</Type></a>
+              </span>
+            }
           </StyledBeerDropdown>
         </ListItem>
       ))}
