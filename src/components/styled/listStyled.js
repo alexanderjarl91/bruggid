@@ -18,7 +18,6 @@ export const ListHeaderText = styled.div`
 `;
 
 export const ListContainer = styled.div`
-  background-color: purple;
   height: 500px;
   overflow: scroll;
 `;

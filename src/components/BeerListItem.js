@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {ReactComponent as Arrow} from '../img/arrow.svg';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import { ReactComponent as Arrow } from "../img/arrow.svg";
+import styled from "styled-components";
 
 //import styled components
 import {
@@ -13,9 +13,9 @@ import {
 } from "./styled/listStyled";
 
 const StyledArrow = styled(Arrow)`
-transition: all .2s ease-in-out; 
+  transition: all 0.2s ease-in-out;
 
-&.arrowUp {
+  &.arrowUp {
     transform: scaleX(-1);
   }
   &.arrowDown {
@@ -37,7 +37,6 @@ const StyledBeerInfo = styled.div`
   gap: 1rem;
 `;
 
-
 const StyledBeerDropdown = styled.div`
   display: flex;
   flex-direction: column;
@@ -47,18 +46,18 @@ const StyledBeerDropdown = styled.div`
   overflow: hidden;
 
   &.expanded {
-    max-height: 200px; 
+    max-height: 250px;
     opacity: 1;
     transition: max-height 600ms ease, opacity 200ms ease;
   }
   &.collapsed {
-    max-height: 0; 
+    max-height: 0;
     opacity: 0;
     transition: max-height 300ms ease, opacity 200ms ease 100ms;
   }
-  
+
   a {
-    color: #F8513D;
+    color: #f8513d;
     font-family: rubik;
     font-weight: bold;
     font-size: 14px;
@@ -68,9 +67,8 @@ const StyledBeerDropdown = styled.div`
   }
 `;
 
-
 function BeerListItem({ data }) {
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false);
   useEffect(() => {
     setExpanded(null);
   }, [data]);
@@ -79,7 +77,9 @@ function BeerListItem({ data }) {
       {/* ATH: value-in verða að hafa if statement á length því annars reynir react að rendera áður en hann fetchar og þá crashar síðan */}
       {data.map((beer, i) => (
         <ListItem key={beer.name} className="brewlistitem__brewery">
-          <StyledBeerItem onClick={ () => setExpanded(i === expanded ? null : i)  }>
+          <StyledBeerItem
+            onClick={() => setExpanded(i === expanded ? null : i)}
+          >
             <StyledBeerInfo>
               <ListImage src={beer.img} alt="" />
               <NameAndTypeContainer>
@@ -87,13 +87,17 @@ function BeerListItem({ data }) {
                 <Type>{`${beer.abv} / ${beer.vol} / ${beer.type}`}</Type>
               </NameAndTypeContainer>
             </StyledBeerInfo>
-            <StyledArrow className={expanded === i ? 'arrowUp' : 'arrowDown'}/>
+            <StyledArrow className={expanded === i ? "arrowUp" : "arrowDown"} />
           </StyledBeerItem>
-          
-          <StyledBeerDropdown className={expanded === i ? 'expanded' : 'collapsed'}>
-          <Type>{beer.about}</Type>
+
+          <StyledBeerDropdown
+            className={expanded === i ? "expanded" : "collapsed"}
+          >
+            <Type>{beer.about}</Type>
             <span>
-              <a href={`/breweries/${beer.brewery}`}><Type>{beer.brewery}</Type></a>
+              <a href={`/breweries/${beer.brewery}`}>
+                <Type>{beer.brewery}</Type>
+              </a>
             </span>
           </StyledBeerDropdown>
         </ListItem>
