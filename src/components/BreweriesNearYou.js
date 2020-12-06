@@ -34,7 +34,7 @@ function BreweriesNearYou({breweries}) {
         <>
             {(position && nearestBreweries && nearestBreweries.length > 0) 
               ? nearestBreweries.map((brewery) => (
-                <div>
+                <div key={brewery.name}>
                     <h2>{brewery.name}</h2> <h3>{geolib.convertDistance(brewery.dist, 'km')} km</h3>
                 </div>
             ))
