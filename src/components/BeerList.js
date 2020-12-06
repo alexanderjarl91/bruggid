@@ -86,7 +86,11 @@ function BeerList() {
       <SearchComponent>
         <SearchBar
           type="text"
+<<<<<<< HEAD
           placeholder="Search"
+=======
+          placeholder="Search for beers ..."
+>>>>>>> a61c725ece8c562d088e89f64be4574542d31711
           onChange={filterBeers}
           />
       </SearchComponent>

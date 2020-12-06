@@ -84,6 +84,7 @@ function BreweryList() {
   }
 
   return (
+<<<<<<< HEAD
     <>
   <ListView>
     <SearchComponent>
@@ -92,6 +93,21 @@ function BreweryList() {
         placeholder="Search"
         onChange={filterData}
       />
+=======
+    <div>
+      <HeaderContainer>
+        <Link to="/">
+          <BackBtn />
+        </Link>
+        <SearchBar
+          className="input"
+          type="text"
+          placeholder="Search for breweries ..."
+          onChange={filterData}
+          // onKeyPress={handleEnterKeyPressed}
+        />
+      </HeaderContainer>
+>>>>>>> a61c725ece8c562d088e89f64be4574542d31711
       <Sort
         sortAZ={sortAZ}
         sortZA={sortZA}

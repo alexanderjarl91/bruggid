@@ -35,7 +35,7 @@ function Loader() {
             <LoadingBeerContainer>
                 <LoadingBeer/>
             </LoadingBeerContainer>
-            <LoadingText>Bringing Icelandic breweries to you...</LoadingText>
+            <LoadingText>Bringing Icelandic breweries to you ...</LoadingText>
         </LoaderContainer>
     );
 }
