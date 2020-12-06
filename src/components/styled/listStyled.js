@@ -9,6 +9,7 @@ export const ListHeader = styled.div`
   height: 60px;
   text-align: left;
 `;
+
 export const ListHeaderText = styled.div`
   font-family: "Rubik", sans-serif;
   font-size: 24px;

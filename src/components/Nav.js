@@ -2,25 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 //import styled components
-import { NavContainer, ButtonContainer } from "./styled/navStyled";
-import { Button } from "./styled/shared/buttons";
+import { NavBar, NavBtnContainer, NavBtn } from "./styled/navItemsStyled";
 
 function Nav() {
   return (
-    <div>
-      <NavContainer>
-        <ButtonContainer>
-          <Link to="/beers">
-            <Button>BEERS</Button>
-          </Link>
-        </ButtonContainer>
-        <ButtonContainer>
-          <Link to="/breweries">
-            <Button>BREWERIES</Button>
-          </Link>
-        </ButtonContainer>
-      </NavContainer>
-    </div>
+    <NavBar>
+      <NavBtnContainer>
+        <Link to="/beers">
+          <NavBtn>Beers</NavBtn>
+        </Link>
+      </NavBtnContainer>
+      <NavBtnContainer>
+        <Link to="/breweries">
+          <NavBtn>Breweries</NavBtn>
+        </Link>
+      </NavBtnContainer>
+    </NavBar>
   );
 }
 
