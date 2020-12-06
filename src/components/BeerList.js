@@ -86,7 +86,7 @@ function BeerList() {
         <SearchBar
           className="input"
           type="text"
-          placeholder="Search for beers.."
+          placeholder="Search for beers ..."
           onChange={filterBeers}
           // onKeyPress={handleEnterKeyPressed}
         />
