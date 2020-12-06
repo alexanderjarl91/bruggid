@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import BreweryListItem from "./BreweryListItem";
 import Nav from "./Nav";
+import Header from "./Header";
 import Sort from "./Sort";
 
 //import styled components
@@ -84,8 +85,8 @@ function BreweryList() {
   }
 
   return (
-<<<<<<< HEAD
     <>
+    <Header/>
   <ListView>
     <SearchComponent>
       <SearchBar
@@ -93,21 +94,6 @@ function BreweryList() {
         placeholder="Search"
         onChange={filterData}
       />
-=======
-    <div>
-      <HeaderContainer>
-        <Link to="/">
-          <BackBtn />
-        </Link>
-        <SearchBar
-          className="input"
-          type="text"
-          placeholder="Search for breweries ..."
-          onChange={filterData}
-          // onKeyPress={handleEnterKeyPressed}
-        />
-      </HeaderContainer>
->>>>>>> a61c725ece8c562d088e89f64be4574542d31711
       <Sort
         sortAZ={sortAZ}
         sortZA={sortZA}

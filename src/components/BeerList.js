@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 //import components
 import Nav from "./Nav";
+import Header from "./Header";
 import BeerListItem, {filterOutDuplicateBeers} from "./BeerListItem";
 import SortBeers from "./SortBeers";
 
@@ -11,8 +12,8 @@ import SortBeers from "./SortBeers";
 // import { HeaderContainer, SearchBar } from "./styled/SearchBarStyled";
 // import { ListHeader, ListHeaderText, ListContainer } from "./styled/listStyled";
 
-import { SearchBar, SearchComponent, SortBar } from "./styled/searchComponentStyled";
-import { ListComponent, ListView, ListInfo, ListTitle, ListHeaders, ListContainer } from "./styled/listViewStyled";
+import { SearchBar, SearchComponent } from "./styled/searchComponentStyled";
+import { ListComponent, ListView, ListInfo, ListTitle, ListHeaders } from "./styled/listViewStyled";
 
 function BeerList() {
   const [beers, setBeers] = useState([]);
@@ -82,15 +83,12 @@ function BeerList() {
 
   return (
     <>
+    <Header/>
     <ListView>
       <SearchComponent>
         <SearchBar
           type="text"
-<<<<<<< HEAD
           placeholder="Search"
-=======
-          placeholder="Search for beers ..."
->>>>>>> a61c725ece8c562d088e89f64be4574542d31711
           onChange={filterBeers}
           />
       </SearchComponent>

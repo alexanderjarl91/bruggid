@@ -11,11 +11,15 @@ export const HeaderLogo = styled.header`
   align-items: center;
   justify-content: center;
   z-index: 100;
+
+  & img {
+    height: 60%; 
+  }
 `
 
-export const HeaderLogoImg = styled.img`
-    height: 60%;
-`
+// export const HeaderLogoImg = styled.img`
+//     height: 60%;
+// `
 
 
 // Navbar at bottom of view
