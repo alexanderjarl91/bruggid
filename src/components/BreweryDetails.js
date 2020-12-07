@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+//icons
+import { ReactComponent as FacebookIcon } from "../img/facebook.svg";
+import { ReactComponent as InstagramIcon } from "../img/instagram.svg";
+import { ReactComponent as LocationIcon } from "../img/location.svg";
+import { ReactComponent as WebsiteIcon } from "../img/web.svg";
+ 
 //import components
 import BeerListItem, {filterOutDuplicateBeers} from "./BeerListItem";
 //import styled components
@@ -52,21 +58,20 @@ function BreweryDetails({ match }) {
 
         <LinkContainer>
           <a href={brewery.webUrl}>
-            <img src="https://svgshare.com/i/S0T.svg" alt="" />
+            <WebsiteIcon />
           </a>
           <a href={brewery.facebookUrl}>
-            <img src="https://svgshare.com/i/RzS.svg" alt="" />
+            <FacebookIcon />
           </a>
           <a href={brewery.instagramUrl}>
-            <img src="https://svgshare.com/i/S18.svg" alt="" />
+            <InstagramIcon/>
           </a>
           <a
             href={`https://www.google.com/maps/@${brewery.latitude},${brewery.longitude},15z`}
             rel="noreferrer"
             target="_blank"
           >
-            <img src="https://svgshare.com/i/S05.svg" alt="" />
-          </a>
+<LocationIcon />         </a>
         </LinkContainer>
       </InfoContainer>
       {/* Listing beers after brewery, without link */}
