@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as Arrow } from "../img/arrow.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import FavoriteBeerButton from "./FavoriteBeerButton";
+
 
 //import styled components
-
-
 import {
   ListItem,
   ListImage,
@@ -15,6 +15,8 @@ import {
   Type,
 } from "./styled/listStyled";
 import { ListCard, DropdownCard, ListCardImg, ListCardImgContainer, ListCardTitle, ListCardInfo, ListContainer, InnerCard } from "./styled/listViewStyled";
+
+
 
 const StyledArrow = styled(Arrow)`
 transition: all .2s ease-in-out; 
@@ -79,15 +81,24 @@ export const filterOutDuplicateBeers = beers => beers.filter((beer, index, self)
 // creating a beer object, extra parameter of not showing link
 function BeerListItem({ beers = [], showBreweryLink = true }) {
   const [expanded, setExpanded] = useState(false)
+
   useEffect(() => {
     setExpanded(null);
   }, [beers]);
 
   return (
     <ListContainer>
-      {beers.map(({beerName, beerABV, beerImg, beerType, beerVol, beerDescription, breweryName}, i) => (
-        <ListCard column>
-          <InnerCard onClick={ () => setExpanded(i === expanded ? null : i)  }>
+      {beers.map((beer, i) => {
+        const {beerName, beerABV, beerImg, beerType, beerVol, beerDescription, breweryName} = beer;
+        return (
+        <ListCard key={`${beerName}_${beerABV}`} column>
+          <InnerCard onClick={ (e) => {
+              const id = e.target.id || '';
+              if (id.includes('favorite')) {
+                return;
+              } 
+              setExpanded(i === expanded ? null : i)
+            }}>
             <ListCardImgContainer>
               <ListCardImg src={beerImg} alt="" />
             </ListCardImgContainer>
@@ -95,14 +106,18 @@ function BeerListItem({ beers = [], showBreweryLink = true }) {
               <ListCardTitle>{beerName}</ListCardTitle>
               <p>{`${beerABV} / ${beerVol} / ${beerType}`}</p>
             </ListCardInfo>
+          <div>
+            <FavoriteBeerButton beer={beer} /> 
             <StyledArrow className={expanded === i ? "arrowUp" : "arrowDown"} />
+          </div>
+            
           </InnerCard>
           <DropdownCard className={expanded === i ? "expanded" : "collapsed"}>
             <p>{beerDescription}</p>
             <Link key={breweryName} to ={`/breweries/${breweryName}`}>{breweryName}</Link>
           </DropdownCard>
         </ListCard>
-      ))}
+      )})}
     </ListContainer>
 
     // <>
