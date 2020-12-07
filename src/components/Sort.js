@@ -1,8 +1,23 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
+// Import SVG
 import { ReactComponent as Arrow } from "../img/arrow.svg";
-import { SortBar, SortBarSelect, ArrowImg, SortBarDropdown, BtnSort } from "./styled/searchComponentStyled";
-//import styled components
-// import { SortButtonText, SortContainer, SortButton, SortButtonsContainer, MainSortButton, SortButtonStuff } from "./styled/index";
+
+// Import styled
+import { SortBar, SortBarSelect, SortBarDropdown, BtnSort } from "./styled/searchComponentStyled";
+
+const StyledArrow = styled(Arrow)`
+transition: all .2s ease-in-out; 
+stroke: ${props => props.theme.light};
+
+&.arrowUp {
+    transform: scaleX(-1);
+  }
+  &.arrowDown {
+    transform: scaleY(-1);
+  }
+`;
 
 function Sort({ sortAZ, sortZA, sortBeerCount, sortEstablished }) {
   const [toggled, setToggled] = useState(false);
@@ -16,9 +31,8 @@ function Sort({ sortAZ, sortZA, sortBeerCount, sortEstablished }) {
     <SortBar>
       <SortBarSelect onClick={handleClick}>
         <p>Sort</p>
-        {!toggled && <p>V</p>}
-        {toggled && <p>∆</p>}
-        {/* <ArrowImg src="./img/arrow.svg"/> Næ ekki að láta þessa bölvuðu ör birtast*/}
+        {!toggled && <StyledArrow className="arrowDown" />}
+        {toggled && <StyledArrow className="arrowUp" />}
       </SortBarSelect>
       {toggled && (
         <SortBarDropdown>

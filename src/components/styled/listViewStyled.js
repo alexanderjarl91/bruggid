@@ -40,7 +40,7 @@ export const ListHeaders = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: 0.75rem;
-    color: #cdcdcd;
+    color: ${props => props.theme.mid};
     text-transform: uppercase;
 
     margin-left: 96px;
@@ -92,14 +92,17 @@ export const ListCardTitle = styled.h3`
     font-size: 1.125rem;
     font-weight: bold;
 `
-
+// Dropdown and Inner menu for Beers card
 export const InnerCard = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
+
+
 `
 
 export const DropdownCard = styled.div`
+    ${'' /* background: orange; */}
     padding-top: 12px;
     width: 100%;
 
@@ -114,4 +117,25 @@ export const DropdownCard = styled.div`
     opacity: 0;
     transition: max-height 300ms ease, opacity 200ms ease 100ms;
 }
+`
+
+export const DropdownInfo = styled.div`
+    display: grid;
+    grid-template-columns: 90px auto;
+    grid-column-rows: repeat(2, auto);
+    gap: 6px;
+    
+    & span {
+        color: ${props => props.theme.accent};
+        font-weight: bold;
+    }
+
+`
+
+export const DropdownInfoLabel = styled.p`
+    font-size: 0.75rem;
+    color: ${props => props.theme.mid};
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
 `

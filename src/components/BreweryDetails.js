@@ -79,7 +79,7 @@ function BreweryDetails({ match }) {
           <ListTitle>Beers</ListTitle>
           <ListHeaders>
             <p>ABV / Size / Type</p>
-            <p>See More</p>
+            {/* <p>Favorite</p> */}
           </ListHeaders>
         </ListInfo>
         <BeerListItem beers={filterOutDuplicateBeers(brewery.catalog)} showBreweryLink={false} />

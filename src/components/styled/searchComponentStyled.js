@@ -11,31 +11,35 @@ export const SearchBar = styled.input`
     align-self: flex-end;
     font-family: inherit;
     width: 60vw;
+    max-width: 500px;
     height: 60px;
-    padding-left: 12px;
-    border: 3px solid ${props => props.theme.accent};
+    padding-left: 18px;
+    border: 2px solid ${props => props.theme.accent};
     border-top: 0;
     border-right: 0;
     border-radius: 0 0 0 20px;
     outline: 0;
-    background: transparent;
-    font-size: 1rem;
+    background: ${props => props.theme.dark};
+    font-size: 1.25rem;
+    font-weight: bold;
     color: ${props => props.theme.light};
+    box-shadow: 0 12px 0 ${props => props.theme.accent};
 
     &::placeholder {
-        color: #cdcdcd;
+        color: ${props => props.theme.mid};
     }
 `
 
 // Sort bar
 export const SortBar = styled.div`
-    background: ${props => props.theme.accent};
+    background: ${props => props.theme.dark};
     margin: 24px;
-    min-height: 30px;
     display: flex;
     flex-flow: column;
-    padding: 24px;
+    padding: 12px 24px;
     border-radius: 20px;
+    border: 2px solid ${props => props.theme.accent};
+    box-shadow: 0 12px 0 ${props => props.theme.accent};
     font-weight: bold;
 
     transition: height 200ms ease-in-out;
@@ -50,23 +54,6 @@ export const SortBarSelect = styled.div`
     font-size: 1.25rem;
 `
 
-export const ArrowImg = styled.img`
-    transition: transform 200ms ease-in-out;
-
-    ${props => {
-    switch (props.direction) {
-        case "up":
-            return "transform: rotate(180deg);";
-        case "left":
-            return "transform: rotate(90deg);";
-        case "right":
-            return "transform: rotate(270deg);";
-        default:
-            return "transform: rotate(0deg);"
-        
-    }
-    }}
-`
 // Dropdown + button styles
 export const SortBarDropdown = styled.div`
     display: flex;
@@ -74,12 +61,6 @@ export const SortBarDropdown = styled.div`
     margin-top: 12px;
     padding-top: 12px;
     border-top: 2px solid ${props => props.theme.light};
-
-    ${'' /* ${props => {
-        if (props.hidden) {
-            return "display: none;"
-        }
-    }} */}
 `
 
 export const BtnSort = styled.button`
@@ -90,7 +71,7 @@ export const BtnSort = styled.button`
     padding: 12px;
     border: none;
     font-weight: bold;
-    color: #2a2a2a;
+    color: ${props => props.theme.dark};
     margin: 0 6px;
 `
 
