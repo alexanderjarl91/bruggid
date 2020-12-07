@@ -20,6 +20,7 @@ export const ListComponent = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    padding-bottom: 88px;
 `
 
 // List component header stuff
@@ -48,8 +49,6 @@ export const ListContainer = styled.div`
     overflow: scroll;
     border-top: 1px solid #cdcdcd;
     color: #2a2a2a;
-
-    margin-bottom: 100px;
 `
 
 // Card
