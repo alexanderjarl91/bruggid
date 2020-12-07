@@ -4,8 +4,10 @@ import styled from "styled-components";
 export const ListView = styled.div`
     height: 100vh;
     width: 100vw;
-    display: flex;
-    flex-flow: column nowrap;
+    ${'' /* display: flex;
+    flex-flow: column nowrap; */}
+    display: grid;
+    grid-template-row: repeat(2, auto);
 `
 
 // See searchBarStyled.js for search/sort filter portion of list view
@@ -14,10 +16,10 @@ export const ListView = styled.div`
 export const ListComponent = styled.div`
     background: #f9f9f9;
     border-radius: 20px 20px 0 0;
-    flex: 1;
-    height: 75vh; /* This height could be adjusted to reuse this component...*/
+    ${'' /* height: 75vh; */}
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 `
 
 // List component header stuff
@@ -45,6 +47,7 @@ export const ListHeaders = styled.div`
 export const ListContainer = styled.div`
     overflow: scroll;
     border-top: 1px solid #cdcdcd;
+    color: #2a2a2a;
 
     margin-bottom: 100px;
 `
@@ -55,6 +58,7 @@ export const ListCard = styled.div`
     padding: 12px 24px;
     display: flex;
     align-items: center;
+    color: #2a2a2a;
 
     ${prop => {
         if (prop.column) {

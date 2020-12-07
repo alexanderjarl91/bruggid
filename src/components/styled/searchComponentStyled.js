@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 // Search component container
 export const SearchComponent = styled.div`
-    flex: 1;
-    min-height: 160px;
     color: ${props => props.theme.light};
     display: flex;
     flex-flow: column nowrap;
@@ -13,7 +11,7 @@ export const SearchBar = styled.input`
     align-self: flex-end;
     font-family: inherit;
     width: 60vw;
-    height: 80px;
+    height: 60px;
     padding-left: 12px;
     border: 3px solid ${props => props.theme.accent};
     border-top: 0;
@@ -33,7 +31,7 @@ export const SearchBar = styled.input`
 export const SortBar = styled.div`
     background: ${props => props.theme.accent};
     margin: 24px;
-    min-height: 40px;
+    min-height: 30px;
     display: flex;
     flex-flow: column;
     padding: 24px;

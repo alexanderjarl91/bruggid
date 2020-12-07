@@ -16,6 +16,8 @@ import { BackBtn } from "./styled/index";
 import BreweriesNearYou from "./BreweriesNearYou";
 import BeerOfTheDay from "./BeerOfTheDay";
 import Nav from "./Nav";
+import { ListComponent, ListInfo, ListTitle, ListHeaders } from "./styled/listViewStyled";
+import Header from "./Header";
 
 function Map() {
     // Access token, style id and user name set in .env variable.
@@ -83,38 +85,51 @@ function Map() {
   console.log(position)
 
     return (
-    <div id='mapid'>
-        <MapContainer center={[64.9841821, -18.1059013]} zoom={6} scrollWheelZoom={false} zoomControl={false} whenCreated={handleMapCreated}>
-            <TileLayer
-                attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> 
-                contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, 
-                Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
-                url= {mapboxUrl} 
-            />
-            <ZoomControl position="topright"/>
+    <>  
+    <Header/>
+      <div id='mapid'>
+          <MapContainer center={[64.9841821, -18.1059013]} zoom={6} scrollWheelZoom={false} zoomControl={false} whenCreated={handleMapCreated}>
+              <TileLayer
+                  attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> 
+                  contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, 
+                  Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
+                  url= {mapboxUrl} 
+              />
+              <ZoomControl position="topright"/>
 
-            {(breweries && breweries.length > 0) 
-              ? breweries.map((brewery) => (
-                <div key={brewery.id}>
-                  <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
-                  {/* Breyta staðsetningu á popup miðað við marker */}
-                  <Popup>
-                    <img src={brewery.logoSrc} alt="" />
-                    <strong>{brewery.name}</strong> <br /> {brewery.address}
-                  </Popup>
-                </Marker>
-              </div>
-            ))
-          : ""}
+              {(breweries && breweries.length > 0) 
+                ? breweries.map((brewery) => (
+                  <div key={brewery.id}>
+                    <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
+                    {/* Breyta staðsetningu á popup miðað við marker */}
+                    <Popup>
+                      <img src={brewery.logoSrc} alt="" />
+                      <strong>{brewery.name}</strong> <br /> {brewery.address}
+                    </Popup>
+                  </Marker>
+                </div>
+              ))
+            : ""}
 
-            {(breweries && breweries.length > 0) 
-              ? <LocationMarker />
-              : '' }
-          
-        </MapContainer>
-        <BreweriesNearYou position={position} breweries={breweries}/>
-        <Nav />
-    </div>
+              {(breweries && breweries.length > 0) 
+                ? <LocationMarker />
+                : '' }
+            
+          </MapContainer>
+          </div>
+          <ListComponent>
+            <ListInfo>
+              <ListTitle>Breweries Near You</ListTitle>
+              <ListHeaders>
+                <p></p>
+                <p>Distance</p>
+              </ListHeaders>
+            </ListInfo>
+            <BreweriesNearYou position={position} breweries={breweries}/>
+          </ListComponent>
+      
+    <Nav />
+    </>
   );
 }
 
