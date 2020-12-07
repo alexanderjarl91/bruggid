@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 
 //import components
 import Nav from "./Nav";
+import Header from "./Header";
 import BeerListItem, {filterOutDuplicateBeers} from "./BeerListItem";
 import SortBeers from "./SortBeers";
 
 //import styled components
-import { BackBtn } from "./styled";
-import { HeaderContainer, SearchBar } from "./styled/SearchBarStyled";
-import { ListHeader, ListHeaderText, ListContainer } from "./styled/listStyled";
+// import { BackBtn } from "./styled";
+// import { HeaderContainer, SearchBar } from "./styled/SearchBarStyled";
+// import { ListHeader, ListHeaderText, ListContainer } from "./styled/listStyled";
+
+import { SearchBar, SearchComponent } from "./styled/searchComponentStyled";
+import { ListComponent, ListView, ListInfo, ListTitle, ListHeaders } from "./styled/listViewStyled";
 
 function BeerList() {
   const [beers, setBeers] = useState([]);
@@ -78,33 +82,63 @@ function BeerList() {
   //split array with split method with % as parameter, parseInt the array to sort by ABV%
 
   return (
-    <div>
-      <HeaderContainer>
-        <Link to="/">
-          <BackBtn></BackBtn>
-        </Link>
+    <>
+    <Header/>
+    <ListView>
+      <SearchComponent>
         <SearchBar
-          className="input"
           type="text"
-          placeholder="Search for beers ..."
+          placeholder="Search"
           onChange={filterBeers}
-          // onKeyPress={handleEnterKeyPressed}
+          />
+      </SearchComponent>
+        <SortBeers
+          sortAZ={sortAZ}
+          sortZA={sortZA}
+          sortType={sortType}
+          sortABV={sortABV}
         />
-      </HeaderContainer>
-      <SortBeers
-        sortAZ={sortAZ}
-        sortZA={sortZA}
-        sortType={sortType}
-        sortABV={sortABV}
-      />
-      <ListHeader>
-        <ListHeaderText>Beers</ListHeaderText>
-      </ListHeader>
-      <ListContainer>
+      <ListComponent>
+        <ListInfo>
+          <ListTitle>Beers</ListTitle>
+          <ListHeaders>
+            <p>ABV / Size / Type</p>
+            <p>See More</p>
+          </ListHeaders>
+        </ListInfo>
         <BeerListItem beers={filteredBeers} />
-      </ListContainer>
-      <Nav />
-    </div>
+      </ListComponent>
+    </ListView>
+    <Nav/>
+    </>
+
+    // <div>
+    //   <HeaderContainer>
+    //     <Link to="/">
+    //       <BackBtn></BackBtn>
+    //     </Link>
+    //     <SearchBar
+    //       className="input"
+    //       type="text"
+    //       placeholder="Search for beers.."
+    //       onChange={filterBeers}
+    //       // onKeyPress={handleEnterKeyPressed}
+    //     />
+    //   </HeaderContainer>
+    //   <SortBeers
+    //     sortAZ={sortAZ}
+    //     sortZA={sortZA}
+    //     sortType={sortType}
+    //     sortABV={sortABV}
+    //   />
+    //   <ListHeader>
+    //     <ListHeaderText>Beers</ListHeaderText>
+    //   </ListHeader>
+    //   <ListContainer>
+    //     <BeerListItem beers={filteredBeers} />
+    //   </ListContainer>
+    //   <Nav />
+    // </div>
   );
 }
 

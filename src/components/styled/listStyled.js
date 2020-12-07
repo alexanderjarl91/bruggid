@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+//GAMALT
+
 export const ListHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -9,6 +11,7 @@ export const ListHeader = styled.div`
   height: 60px;
   text-align: left;
 `;
+
 export const ListHeaderText = styled.div`
   font-family: "Rubik", sans-serif;
   font-size: 24px;

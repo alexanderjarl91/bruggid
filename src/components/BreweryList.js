@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import BreweryListItem from "./BreweryListItem";
 import Nav from "./Nav";
+import Header from "./Header";
 import Sort from "./Sort";
 
 //import styled components
-import { BackBtn } from "./styled/index";
-import { SearchBar, HeaderContainer } from "./styled/SearchBarStyled";
-import { ListContainer, ListHeader, ListHeaderText } from "./styled/listStyled";
+// import { BackBtn } from "./styled/index";
+// import { SearchBar, HeaderContainer } from "./styled/SearchBarStyled";
+// import { ListContainer, ListHeader, ListHeaderText } from "./styled/listStyled";
+
+import { SearchBar, SearchComponent, SortBar } from "./styled/searchComponentStyled";
+import { ListComponent, ListView, ListInfo, ListTitle, ListHeaders, ListContainer } from "./styled/listViewStyled";
+
 
 function BreweryList() {
   //declare original state, never altered nor displayed
@@ -80,35 +85,35 @@ function BreweryList() {
   }
 
   return (
-    <div>
-      <HeaderContainer>
-        <Link to="/">
-          <BackBtn />
-        </Link>
-        <SearchBar
-          className="input"
-          type="text"
-          placeholder="Search for breweries ..."
-          onChange={filterData}
-          // onKeyPress={handleEnterKeyPressed}
-        />
-      </HeaderContainer>
+    <>
+    <Header/>
+  <ListView>
+    <SearchComponent>
+      <SearchBar
+        type="text"
+        placeholder="Search"
+        onChange={filterData}
+      />
       <Sort
         sortAZ={sortAZ}
         sortZA={sortZA}
         sortBeerCount={sortBeerCount}
-        sortEstablished={sortEstablished}
+        sortEstablished={sortEstablished} 
       />
-      <ListHeader>
-        <ListHeaderText>Breweries</ListHeaderText>
-        <ListHeaderText>Beers:</ListHeaderText>
-      </ListHeader>
-      <ListContainer>
+    </SearchComponent>
+    <ListComponent>
+      <ListInfo>
+        <ListTitle>Breweries</ListTitle>
+        <ListHeaders>
+          <p>Brewery Type</p>
+          <p>No. Beers</p>
+        </ListHeaders>
+      </ListInfo>
         <BreweryListItem data={filteredBreweries} />
-      </ListContainer>
-
-      <Nav />
-    </div>
+    </ListComponent>
+  </ListView>
+  <Nav/>
+  </>
   );
 }
 

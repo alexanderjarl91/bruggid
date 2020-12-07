@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { ReactComponent as Arrow } from "../img/arrow.svg";
+import { SortBar, SortBarSelect, ArrowImg, SortBarDropdown, BtnSort } from "./styled/searchComponentStyled";
 //import styled components
-import { SortButtonText, SortContainer, SortButton, SortButtonsContainer, MainSortButton, SortButtonStuff } from "./styled/index";
+// import { SortButtonText, SortContainer, SortButton, SortButtonsContainer, MainSortButton, SortButtonStuff } from "./styled/index";
 
 function Sort({ sortAZ, sortZA, sortBeerCount, sortEstablished }) {
   const [toggled, setToggled] = useState(false);
@@ -11,25 +13,22 @@ function Sort({ sortAZ, sortZA, sortBeerCount, sortEstablished }) {
   }
 
   return (
-    <SortContainer>
-      <MainSortButton onClick={handleClick}>
-        <SortButtonStuff>
-        <SortButtonText>Sort</SortButtonText>
-        {toggled && <img width="13px" height="13px"src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png"></img>}
-        {!toggled && <img width="20px"src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png" alt=""/>}
-        </SortButtonStuff>
-        
-        </MainSortButton>
-      {/* if toggled = true, return these items: */}
+    <SortBar>
+      <SortBarSelect onClick={handleClick}>
+        <p>Sort</p>
+        {!toggled && <p>V</p>}
+        {toggled && <p>∆</p>}
+        {/* <ArrowImg src="./img/arrow.svg"/> Næ ekki að láta þessa bölvuðu ör birtast*/}
+      </SortBarSelect>
       {toggled && (
-        <SortButtonsContainer background-color="red">
-          <SortButton onClick={sortAZ}>A-Z</SortButton>
-          <SortButton onClick={sortZA}>Z-A</SortButton>
-          <SortButton onClick={sortEstablished}>Est.</SortButton>
-          <SortButton onClick={sortBeerCount}>Beers</SortButton>
-        </SortButtonsContainer>
+        <SortBarDropdown>
+        <BtnSort onClick={sortAZ}>A-Z</BtnSort>
+        <BtnSort onClick={sortZA}>Z-A</BtnSort>
+        <BtnSort onClick={sortEstablished}>Est.</BtnSort>
+        <BtnSort onClick={sortBeerCount}>Beers</BtnSort>
+      </SortBarDropdown>
       )}
-    </SortContainer>
+    </SortBar>
   );
 }
 

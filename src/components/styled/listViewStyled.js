@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 //Listview container
-export const listView = styled.div`
+export const ListView = styled.div`
     height: 100vh;
     width: 100vw;
-
     display: flex;
     flex-flow: column nowrap;
 `
@@ -12,21 +11,26 @@ export const listView = styled.div`
 // See searchBarStyled.js for search/sort filter portion of list view
 
 // List component
-export const listComponent = styled.div`
+export const ListComponent = styled.div`
     background: #f9f9f9;
     border-radius: 20px 20px 0 0;
     flex: 1;
-    max-height: 75vh; /* This height could be adjusted to reuse this component...*/
+    height: 75vh; /* This height could be adjusted to reuse this component...*/
     display: flex;
     flex-direction: column;
 `
 
 // List component header stuff
-export const listInfo = styled.div`
+export const ListInfo = styled.div`
     margin: 24px 24px 4px 24px;
 `
 
-export const listHeaders = styled.div`
+export const ListTitle = styled.h2`
+    font-weight: bold;
+    font-size: 2rem;
+`
+
+export const ListHeaders = styled.div`
     margin-top: 12px;
     display: flex;
     justify-content: space-between;
@@ -38,25 +42,28 @@ export const listHeaders = styled.div`
 `
 
 // Container for the list render
-export const listContainer = styled.div`
+export const ListContainer = styled.div`
     overflow: scroll;
     border-top: 1px solid #cdcdcd;
+
+    margin-bottom: 100px;
 `
 
 // Card
-export const listCard = styled.div`
+export const ListCard = styled.div`
     border-bottom: 1px solid #cdcdcd;
     padding: 12px 24px;
     display: flex;
     align-items: center;
 
-    &:last-child {
-        margin-bottom: 100px;
-        border-bottom: 0;
-    }
+    ${prop => {
+        if (prop.column) {
+            return "flex-direction: column;"
+        }
+    }}
 `
 
-export const listCardImgContainer = styled.div`
+export const ListCardImgContainer = styled.div`
     background: #ffffff;
     width: 80px;
     height: 80px;
@@ -66,16 +73,39 @@ export const listCardImgContainer = styled.div`
     border-radius: 50%;
     margin-right: 16px;
 `
-export const listCard = styled.img`
-    width: 80%;
+export const ListCardImg = styled.img`
+    max-width: 80%;
     max-height: 80%;
 `
 
-export const listCardInfo = styled.div`
+export const ListCardInfo = styled.div`
     flex: 1;
 `
-export const listCardTitle = styled.h3`
+export const ListCardTitle = styled.h3`
     margin-bottom: 6px;
     font-size: 1.125rem;
     font-weight: bold;
+`
+
+export const InnerCard = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+`
+
+export const DropdownCard = styled.div`
+    padding-top: 12px;
+    width: 100%;
+
+    &.expanded {
+    max-height: 250px;
+    opacity: 1;
+    transition: max-height 600ms ease, opacity 200ms ease;
+    }
+
+    &.collapsed {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 300ms ease, opacity 200ms ease 100ms;
+}
 `
