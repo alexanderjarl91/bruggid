@@ -57,10 +57,9 @@ function BreweryDetails({ match }) {
         </BreweryLogo>
         <BreweryInfo>
           <BreweryInfoTitle>
-          <h2>{brewery.name}</h2>
           <p>Est. {brewery.established}</p>
+            <h2>{brewery.name}</h2>
           </BreweryInfoTitle>
-          <BreweryInfoDesc>{brewery.about}</BreweryInfoDesc>
           <BreweryInfoLinks>
             <a href={brewery.webUrl}><WebsiteIcon /></a>
             <a href={brewery.facebookUrl}><FacebookIcon /></a>
@@ -71,6 +70,9 @@ function BreweryDetails({ match }) {
               target="_blank"
             ><LocationIcon /></a>
           </BreweryInfoLinks>
+          <BreweryInfoDesc>
+            <p>{brewery.about}</p>
+          </BreweryInfoDesc>
         </BreweryInfo>
         <ListComponent>
         <ListInfo>

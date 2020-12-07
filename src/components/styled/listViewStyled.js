@@ -8,6 +8,7 @@ export const ListView = styled.div`
     flex-flow: column nowrap; */}
     display: grid;
     grid-template-row: repeat(2, auto);
+    overflow: hidden;
 `
 
 // See searchBarStyled.js for search/sort filter portion of list view
@@ -21,6 +22,7 @@ export const ListComponent = styled.div`
     flex-direction: column;
     overflow: hidden;
     padding-bottom: 88px;
+    filter: drop-shadow(0px -2px 6px rgba(42, 42, 42, 0.4));
 `
 
 // List component header stuff
@@ -47,6 +49,7 @@ export const ListHeaders = styled.div`
 // Container for the list render
 export const ListContainer = styled.div`
     overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     border-top: 1px solid #cdcdcd;
     color: #2a2a2a;
 `

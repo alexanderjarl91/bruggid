@@ -5,6 +5,7 @@ export const BreweryView = styled.div`
     width: 100vw;
     display: grid;
     grid-template-row: repeat(3, auto);
+    overflow: hidden;
 `
 // Logo
 export const BreweryLogo = styled.div`
@@ -16,8 +17,8 @@ export const BreweryLogo = styled.div`
 
 export const BreweryLogoContainer = styled.div`
     background: #ffffff;
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,9 +35,8 @@ export const BreweryLogoImg = styled.img`
 export const BreweryInfo = styled.div`
     background: ${props => props.theme.accent};
     border-radius: 20px 20px 0 0;
-    ${'' /* filter: drop-shadow(0px -2px 6px rgba(42, 42, 42, 0.4)); */} /* Ef ég set filter á þetta þá hoppar hann framfyrir lista compónentinn... held það sé ehv. að skarast á við box-shadowinn... */ 
     box-shadow: 0 40px 0 ${props => props.theme.accent}; /* Box shadow adds color behind the next element without a mess */
-    padding: 24px;
+    padding: 24px 24px 0px 24px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -46,11 +46,9 @@ export const BreweryInfoTitle = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-bottom: 12px;
 
     & h2 {
         color: ${props => props.theme.light};
-        margin-bottom: 6px;
         text-transform: uppercase;
         font-size: 2rem;
         font-weight: bold;
@@ -58,17 +56,23 @@ export const BreweryInfoTitle = styled.div`
     
     & p {
         font-weight: bold;
+        margin-bottom: 6px;
     }
 `
 
 export const BreweryInfoDesc = styled.div`
-    max-height: 160px;
+    max-height: 120px;
     overflow: scroll;
-    margin-bottom: 24px;
+    -webkit-overflow-scrolling: touch;
+
+    & p {
+        padding-bottom: 12px;
+    }
 `
 
 export const BreweryInfoLinks = styled.div`
     display: flex;
+    margin: 12px;
 
     & a {
         margin-left: 6px;
