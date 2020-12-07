@@ -80,6 +80,7 @@ function Map() {
         </Marker>
       );
   }
+  console.log(position)
 
     return (
     <div id='mapid'>
@@ -111,7 +112,7 @@ function Map() {
               : '' }
           
         </MapContainer>
-        <BreweriesNearYou breweries={breweries}/>
+        <BreweriesNearYou position={position} breweries={breweries}/>
         <Nav />
     </div>
   );
