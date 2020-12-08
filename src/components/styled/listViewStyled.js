@@ -125,7 +125,7 @@ export const DropdownInfo = styled.div`
     grid-column-rows: repeat(2, auto);
     gap: 6px;
     
-    & span {
+    & a {
         color: ${props => props.theme.accent};
         font-weight: bold;
     }
