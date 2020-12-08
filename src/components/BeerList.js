@@ -22,7 +22,7 @@ function BeerList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let response = await fetch("https://brugg-api.herokuapp.com/breweries");
+        let response = await fetch("https://dry-stream-05871.herokuapp.com/breweries");
         const breweries = await response.json();
         
         // todo duplicate ætti að vera lagað í api

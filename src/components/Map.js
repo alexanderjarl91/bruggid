@@ -33,7 +33,7 @@ function Map() {
 
     useEffect(() => {
     // Fetch from the Brugg API.
-    fetch("https://brugg-api.herokuapp.com/breweries")
+    fetch("https://dry-stream-05871.herokuapp.com/breweries")
       // Return json.
       .then((r) => r.json())
       // Set data to breweries.
@@ -61,7 +61,7 @@ function Map() {
   function handleMapCreated(map) {
     setTimeout(() => {
       map.locate();
-    }, 3000);
+    }, 2000);
   }
 
   // Setting a marker and fly to user location if allowed
@@ -70,7 +70,7 @@ function Map() {
         
       locationfound(e) {
           setPosition(e.latlng)
-          map.setZoom(12)
+          map.setZoom(11)
           map.flyTo(e.latlng, map.getZoom())
         },
       });
@@ -87,7 +87,7 @@ function Map() {
     <>  
     <Header/>
       <div id='mapid'>
-          <MapContainer center={[64.9841821, -18.1059013]} zoom={6} scrollWheelZoom={false} zoomControl={false} whenCreated={handleMapCreated}>
+          <MapContainer center={[64.9841821, -18.1059013]} zoom={5} scrollWheelZoom={false} zoomControl={false} whenCreated={handleMapCreated}>
               <TileLayer
                   attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> 
                   contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, 

@@ -24,7 +24,7 @@ function BreweryList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let response = await fetch("https://brugg-api.herokuapp.com/breweries");
+        let response = await fetch("https://dry-stream-05871.herokuapp.com/breweries");
         response = await response.json();
         setBreweries(response);
         setFilteredBreweries(response);
