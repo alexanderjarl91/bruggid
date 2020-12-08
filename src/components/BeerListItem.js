@@ -15,6 +15,7 @@ import { ListCard, DropdownCard, ListCardImg, ListCardImgContainer, ListCardTitl
 
 const StyledArrow = styled(Arrow)`
 transition: all .2s ease-in-out;
+margin-right: 0.5rem;
 stroke: ${props => props.theme.dark};
 
 &.arrowUp {
@@ -24,6 +25,9 @@ stroke: ${props => props.theme.dark};
     transform: scaleY(-1);
   }
 `;
+
+
+
 
 export const filterOutDuplicateBeers = beers => beers.filter((beer, index, self) =>
           index === self.findIndex((t) => (
@@ -52,25 +56,23 @@ function BeerListItem({ beers = [], showBreweryLink = true }) {
               } 
               setExpanded(i === expanded ? null : i)
             }}>
+           <StyledArrow className={expanded === i ? "arrowUp" : "arrowDown"} />
+  
             <ListCardImgContainer>
               <ListCardImg src={beerImg} alt="" />
             </ListCardImgContainer>
             <ListCardInfo>
               <ListCardTitle>{beerName}</ListCardTitle>
-              <p>{`${beerABV} / ${beerVol} / ${beerType}`}</p>
+              <p>{`${beerABV} / ${beerVol} / ${beerType}`} </p>
             </ListCardInfo>
-          <div className="icons">
-            <FavoriteBeerButton beer={beer} /> 
-            <StyledArrow className={expanded === i ? "arrowUp" : "arrowDown"} />
-          </div>
-            
+            <FavoriteBeerButton beer={beer} />
           </InnerCard>
           <DropdownCard className={expanded === i ? "expanded" : "collapsed"}>
             <DropdownInfo>
               <DropdownInfoLabel>Desc.</DropdownInfoLabel>
               <p>{beerDescription}</p>
               <DropdownInfoLabel>Brewery</DropdownInfoLabel>
-              <Link key={breweryName} to={`/breweries/${breweryName}`}><span>{breweryName}</span></Link>
+              <span><Link key={breweryName} to={`/breweries/${breweryName}`}>{breweryName}</Link></span>
             </DropdownInfo>
           </DropdownCard>
         </ListCard>
