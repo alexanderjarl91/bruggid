@@ -12,7 +12,6 @@ import beer from "../img/beer-bottle.svg";
 import location from "../img/location-icon.svg";
 
 //import components
-import { BackBtn } from "./styled/index";
 import BreweriesNearYou from "./BreweriesNearYou";
 import BeerOfTheDay from "./BeerOfTheDay";
 import Nav from "./Nav";
@@ -49,13 +48,14 @@ function Map() {
         iconUrl: beer,
         // Skoða hvort það sé hægt að setja stærð í % eða rem ... líka á hinu iconinu
         iconSize: [35, 35],
-        popupAnchor:  [0, -18]
+        popupAnchor:  [0, -19]
     });
 
   // Icon constructor for map marker
   const locationIcon = new Icon({
     iconUrl: location,
     iconSize: [25, 25],
+    popupAnchor:  [0, -12]
   });
 
   function handleMapCreated(map) {
@@ -70,14 +70,13 @@ function Map() {
         
       locationfound(e) {
           setPosition(e.latlng)
-          map.setZoom(11)
-          map.flyTo(e.latlng, map.getZoom())
+          map.flyTo(e.latlng, 11)
         },
       });
     
       return position === null ? null : (
         <Marker position={position} icon={locationIcon}>
-          <Popup>You are here</Popup>
+          <Popup keepInView={true} className='popup-style'>You are here</Popup>
         </Marker>
       );
   }
@@ -88,10 +87,11 @@ function Map() {
     <Header/>
       <div id='mapid'>
           <MapContainer center={[64.9841821, -18.1059013]} zoom={5} scrollWheelZoom={false} zoomControl={false} whenCreated={handleMapCreated}>
-              <TileLayer
-                  attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> 
-                  contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, 
-                  Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
+              <TileLayer attributionControl={false}
+                  // className='attribution-style'
+                  // attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> 
+                  // contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, 
+                  // Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
                   url= {mapboxUrl} 
               />
               <ZoomControl position="topright"/>
@@ -100,8 +100,8 @@ function Map() {
               ? breweries.map((brewery) => (
                 <div key={brewery.id}>
                   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
-                  <Popup>
-                    <strong>{brewery.name}</strong> <br /> {brewery.address}
+                  <Popup keepInView={true} className='popup-style'>
+                    {brewery.name} <br /> {brewery.address}
                   </Popup>
                 </Marker>
               </div>
