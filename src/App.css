@@ -91,10 +91,9 @@ ul {
   width: 100%;
 }
 
-/* .attribution-style .leaflet-control-attribution .leaflet-control {
-  font-size: 9px;
-  padding: 0 24px;
-} */
+.leaflet-control-attribution{
+  display: none;
+} 
 
 /* Loader styles */
 
