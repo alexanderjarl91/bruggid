@@ -36,9 +36,10 @@ function Map() {
     "pk.eyJ1IjoiYmpvcmdnIiwiYSI6ImNraTBjdjR2bTJ5dXMycGt6dGtobjgyZ2UifQ.eNui5MdJCiPoaQF3c6UgjA";
   const mapboxUrl = `https://api.mapbox.com/styles/v1/${userName}/${styleId}/tiles/256/{z}/{x}/{y}@2x?access_token=${accessToken}`;
 
-    const [position, setPosition] = useState(null)
-    const [breweries, setBreweries] = useState();
+  const [position, setPosition] = useState(null)
+  const [breweries, setBreweries] = useState();
 
+  // Effect hook for the api fetch
   useEffect(() => {
     // Fetch from the Brugg API.
     fetch("https://dry-stream-05871.herokuapp.com/breweries")
@@ -104,8 +105,8 @@ function Map() {
 
             {/* When breweries array has objects, map it and return markers and popups
             to each position with brewery name and address */}
-            {(!breweries) ? ''
-              : breweries.map((brewery) => (
+            {breweries && breweries.length > 0 ? (
+               breweries.map((brewery) => (
                 <div key={brewery.id}>
                   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
                   <Popup keepInView={true} className='popup-style'>
@@ -113,11 +114,12 @@ function Map() {
                   </Popup>
                 </Marker>
               </div>
-            ))}
+              ))): ''}
 
             {/* When breweries array has objects, return location marker component */}
-            {(!breweries) ? ''
-              : <LocationMarker />}
+            {breweries && breweries.length > 0 ? (
+              <LocationMarker />
+            ): ''}
             
           </MapContainer>
        </div>
