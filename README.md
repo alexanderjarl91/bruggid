@@ -1,4 +1,7 @@
 Map attribution: Leaflet | Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox
+https://www.openstreetmap.org/
+https://creativecommons.org/licenses/by-sa/2.0/
+https://www.mapbox.com/
 
 # Getting Started with Create React App
 
