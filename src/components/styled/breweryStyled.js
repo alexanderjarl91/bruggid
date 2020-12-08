@@ -24,7 +24,7 @@ export const BreweryLogoContainer = styled.div`
     justify-content: center;
     border: 2px solid ${props => props.theme.accent};
     border-radius: 50%;
-    box-shadow: 0 12px 0 ${props=>props.theme.accent};
+    box-shadow: 0 4px 0 ${props=>props.theme.accent};
 `
 
 export const BreweryLogoImg = styled.img`
