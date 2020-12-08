@@ -49,7 +49,7 @@ export const ListContainer = styled.div`
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     border-top: 1px solid #cdcdcd;
-    color: #2a2a2a;
+    color: ${props => props.theme.dark};
 `
 
 // Card
@@ -58,7 +58,7 @@ export const ListCard = styled.div`
     padding: 12px 24px;
     display: flex;
     align-items: center;
-    color: #2a2a2a;
+    color: ${props => props.theme.dark};
 
     ${prop => {
         if (prop.column) {
@@ -89,52 +89,4 @@ export const ListCardTitle = styled.h3`
     margin-bottom: 6px;
     font-size: 1.125rem;
     font-weight: bold;
-`
-// Dropdown and Inner menu for Beers card
-export const InnerCard = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-
-`
-
-export const DropdownCard = styled.div`
-    ${'' /* background: orange; */}
-    padding-top: 12px;
-    width: 100%;
-
-    &.expanded {
-    max-height: 250px;
-    opacity: 1;
-    transition: max-height 600ms ease, opacity 200ms ease;
-    }
-
-    &.collapsed {
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 300ms ease, opacity 200ms ease 100ms;
-}
-`
-
-export const DropdownInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    grid-template-columns: 90px auto;
-    grid-column-rows: repeat(2, auto);
-    gap: 6px;
-    
-    & a {
-        color: ${props => props.theme.accent};
-        font-weight: bold;
-    }
-
-`
-
-export const DropdownInfoLabel = styled.p`
-    font-size: 0.75rem;
-    color: ${props => props.theme.mid};
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
 `

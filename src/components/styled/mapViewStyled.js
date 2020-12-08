@@ -9,6 +9,11 @@ export const MapView = styled.div`
     overflow: hidden;
 `
 
+export const MapComponent = styled.div`
+    min-height: 30vh;
+    background: orange;
+`
+
 // List uses styles from listViewStyled
 // Breweries Near You Distance
 export const Distance = styled.h3`

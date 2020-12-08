@@ -30,7 +30,7 @@ import {
   ListHeaders,
 } from "./styled/listViewStyled";
 
-import { MapView } from "./styled/mapViewStyled";
+import { MapView, MapComponent } from "./styled/mapViewStyled";
   
 // Location icon inline
 const StyledLocation = styled(LocationIcon)`
@@ -110,6 +110,7 @@ function Map() {
     <Header/>
       {/* Map */}
       <MapView>
+      <MapComponent>
       <div id='mapid'>
           {/* Returning React-Leaflet map components with Mapbox tile layer */}
           <MapContainer center={[64.9841821, -18.1059013]} zoom={5} scrollWheelZoom={false} zoomControl={false} whenCreated={handleMapCreated}>
@@ -135,6 +136,7 @@ function Map() {
             
           </MapContainer>
        </div>
+       </MapComponent>
           
           {/* Breweries near you */}
           <ListComponent>

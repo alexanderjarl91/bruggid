@@ -66,7 +66,10 @@ export const NavBtn = styled.button`
 
     ${props => {
         if (props.selected) {
-            return "margin-top: 16px; box-shadow: 0 4px 0 ${props => props.theme.dark};"
+            return `
+            margin-top: 16px;
+            box-shadow: 0 4px 0 #2a2a2a;
+            `
         }
     }}
 `

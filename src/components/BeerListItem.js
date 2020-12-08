@@ -10,13 +10,14 @@ import FavoriteBeerButton from "./FavoriteBeerButton";
 
 import TriedBeerButton from "./TriedBeerButton";
 //import styled components
-import { ListCard, DropdownCard, ListCardImg, ListCardImgContainer, ListCardTitle, ListCardInfo, ListContainer, InnerCard, DropdownInfo, DropdownInfoLabel } from "./styled/listViewStyled";
+import { ListCardTitle, ListCardInfo, ListContainer} from "./styled/listViewStyled";
+import { BeerCard, BeerCardDropdown, BeerCardImg, BeerCardImgContainer, BeerCardInfo, BeerCardSeeMore } from "./styled/beerCardStyled";
 
 
 
 const StyledArrow = styled(Arrow)`
 transition: all .2s ease-in-out;
-stroke: ${props => props.theme.dark};
+stroke: ${props => props.theme.mid};
 
 &.arrowUp {
     transform: scaleX(-1);
@@ -26,10 +27,6 @@ stroke: ${props => props.theme.dark};
   }
 `;
 
-const StyledArrowContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
 
 const StyledIconsContainer = styled.div`
   display: flex;
@@ -58,43 +55,32 @@ function BeerListItem({ beers = [], showBreweryLink = true }) {
       {beers.map((beer, i) => {
         const {beerName, beerABV, beerImg, beerType, beerVol, beerDescription, breweryName} = beer;
         return (
-        <ListCard key={`${beerName}_${beerABV}`} column>
-          <InnerCard >
-           
-            <ListCardImgContainer>
-              <ListCardImg src={beerImg} alt="" />
-            </ListCardImgContainer>
-            <ListCardInfo>
-              <ListCardTitle>{beerName}</ListCardTitle>
-              <p>{`${beerABV} / ${beerVol} / ${beerType}`} </p>
-            </ListCardInfo>
-
-            <StyledIconsContainer>
-              <FavoriteBeerButton beer={beer} />
-              <TriedBeerButton beer={beer} />
-            </StyledIconsContainer>
-          </InnerCard>
-          
-          <StyledArrowContainer>
-              <StyledArrow onClick={ (e) => {
+          <BeerCard className={expanded === i ? "expanded" : "collapsed"} >
+            <BeerCardImgContainer>
+              <BeerCardImg src={beerImg} alt="" />
+            </BeerCardImgContainer>
+            <BeerCardInfo>
+              <ListCardInfo>
+                <ListCardTitle>{beerName}</ListCardTitle>
+                <p>{`${beerABV} / ${beerVol} / ${beerType}`}</p>
+              </ListCardInfo>
+              <StyledIconsContainer>
+                  <FavoriteBeerButton beer={beer} />
+                  <TriedBeerButton beer={beer} />
+              </StyledIconsContainer>
+            </BeerCardInfo>
+            {expanded === i && <BeerCardDropdown>
+              <p>{beerDescription}</p>
+              <Link key={breweryName} to={`/breweries/${breweryName}`}>by <span>{breweryName}</span></Link>
+            </BeerCardDropdown>}
+            <BeerCardSeeMore onClick={ (e) => {
               const id = e.target.id || '';
               if (id.includes('icon')) {
                 return;
-              } 
+              }
               setExpanded(i === expanded ? null : i)
-              }} className={expanded === i ? "arrowUp" : "arrowDown"} />
-            </StyledArrowContainer>   
-
-          <DropdownCard className={expanded === i ? "expanded" : "collapsed"}>
-            <DropdownInfo>
-              <p>{beerDescription}</p>
-              <span><Link key={breweryName} to={`/breweries/${breweryName}`}>{breweryName}</Link></span>
-            </DropdownInfo>
-          </DropdownCard>
-
-           
-
-        </ListCard>
+            }}><StyledArrow className={expanded === i ? "arrowUp" : "arrowDown"} /></BeerCardSeeMore>
+          </BeerCard>
       )})}
     </ListContainer>
   );
