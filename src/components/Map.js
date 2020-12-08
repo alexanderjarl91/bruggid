@@ -101,7 +101,6 @@ function Map() {
                 <div key={brewery.id}>
                   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
                   <Popup>
-                    <img src={brewery.logoSrc} alt="" />
                     <strong>{brewery.name}</strong> <br /> {brewery.address}
                   </Popup>
                 </Marker>

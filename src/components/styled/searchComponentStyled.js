@@ -23,7 +23,7 @@ export const SearchBar = styled.input`
     font-size: 1.25rem;
     font-weight: bold;
     color: ${props => props.theme.light};
-    box-shadow: 0 12px 0 ${props => props.theme.accent};
+    box-shadow: 0 8px 0 ${props => props.theme.accent};
 
     &::placeholder {
         color: ${props => props.theme.mid};
@@ -39,7 +39,7 @@ export const SortBar = styled.div`
     padding: 12px 24px;
     border-radius: 20px;
     border: 2px solid ${props => props.theme.accent};
-    box-shadow: 0 12px 0 ${props => props.theme.accent};
+    box-shadow: 0 8px 0 ${props => props.theme.accent};
     font-weight: bold;
 
     transition: height 200ms ease-in-out;
