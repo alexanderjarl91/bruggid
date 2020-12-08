@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as geolib from 'geolib';
-
-import { ListComponent } from "./styled/listViewStyled";
+import { ListContainer, ListCard, ListCardInfo, ListCardTitle } from "./styled/listViewStyled";
+import { Link } from "react-router-dom";
 
 function BreweriesNearYou({breweries, position}) {
     const [nearestBreweries, setNearestBreweries] = useState()
@@ -27,19 +27,23 @@ function BreweriesNearYou({breweries, position}) {
     }
 
     return (
-        <>
-            <ListComponent>
-                {(position && nearestBreweries && nearestBreweries.length > 0) 
-                ? nearestBreweries.map((brewery) => (
-                    <div key={brewery.name}>
-                        <h2>{brewery.name}</h2> <h3>{getKm(brewery.dist)} km</h3>
-                    </div>
-                ))
+        <ListContainer>
+            {(position && nearestBreweries && nearestBreweries.length > 0) 
+              ? nearestBreweries.map((brewery) => (
+                <Link key={brewery.id} to ={`/breweries/${brewery.name}`}>
+                    <ListCard key={brewery.name}>
+                        <ListCardInfo>
+                            <ListCardTitle>{brewery.name}</ListCardTitle>
+                        </ListCardInfo>
+                        <p>{getKm(brewery.dist)} km</p>
+                    </ListCard>
+                </Link>
 
-                : <p>Waiting for your location</p>
-                }
-            </ListComponent>
-        </>
+            ))
+
+            : <p>Waiting for your location</p>
+            }
+        </ListContainer>
     )
 }
 

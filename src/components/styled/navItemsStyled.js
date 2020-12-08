@@ -10,17 +10,12 @@ export const HeaderLogo = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 999;
 
   & img {
     height: 60%; 
   }
 `
-
-// export const HeaderLogoImg = styled.img`
-//     height: 60%;
-// `
-
 
 // Navbar at bottom of view
 export const NavBar = styled.footer`
@@ -29,7 +24,7 @@ export const NavBar = styled.footer`
   left: 0;
   height: 88px;
   width: 100vw;
-  z-index: 100;
+  z-index: 999;
 
   background: ${props => props.theme.accent};
   filter: drop-shadow(0px -2px 6px rgba(42, 42, 42, 0.4));

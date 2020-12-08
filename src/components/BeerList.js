@@ -91,19 +91,19 @@ function BeerList() {
           placeholder="Search"
           onChange={filterBeers}
           />
-      </SearchComponent>
         <SortBeers
           sortAZ={sortAZ}
           sortZA={sortZA}
           sortType={sortType}
           sortABV={sortABV}
         />
+      </SearchComponent>
       <ListComponent>
         <ListInfo>
           <ListTitle>Beers</ListTitle>
           <ListHeaders>
             <p>ABV / Size / Type</p>
-            <p>See More</p>
+            {/* <p>Favorite</p> */}
           </ListHeaders>
         </ListInfo>
         <BeerListItem beers={filteredBeers} />
@@ -111,34 +111,6 @@ function BeerList() {
     </ListView>
     <Nav/>
     </>
-
-    // <div>
-    //   <HeaderContainer>
-    //     <Link to="/">
-    //       <BackBtn></BackBtn>
-    //     </Link>
-    //     <SearchBar
-    //       className="input"
-    //       type="text"
-    //       placeholder="Search for beers.."
-    //       onChange={filterBeers}
-    //       // onKeyPress={handleEnterKeyPressed}
-    //     />
-    //   </HeaderContainer>
-    //   <SortBeers
-    //     sortAZ={sortAZ}
-    //     sortZA={sortZA}
-    //     sortType={sortType}
-    //     sortABV={sortABV}
-    //   />
-    //   <ListHeader>
-    //     <ListHeaderText>Beers</ListHeaderText>
-    //   </ListHeader>
-    //   <ListContainer>
-    //     <BeerListItem beers={filteredBeers} />
-    //   </ListContainer>
-    //   <Nav />
-    // </div>
   );
 }
 

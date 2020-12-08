@@ -31,7 +31,7 @@ import { ListCard, ListCardInfo, ListCardTitle, ListContainer, ListCardImgContai
 //   }
 // `;
 
-function BreweryListItem({ data }) {
+function BreweryListItem({ data = [] }) {
   //Toggle data in or out with function
   //   const [toggleInfo, setToggleInfo] = useState(new Array(data.length))
 

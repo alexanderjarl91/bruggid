@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-//import styled components
-import {
-  SortButtonText,
-  SortContainer,
-  SortButton,
-  SortButtonsContainer,
-  MainSortButton,
-  SortButtonStuff,
-} from "./styled/index";
+import styled from "styled-components";
+
+// Import SVG
+import { ReactComponent as Arrow } from "../img/arrow.svg";
+
+// Import styled
+import { SortBar, SortBarSelect, SortBarDropdown, BtnSort } from "./styled/searchComponentStyled";
+
+const StyledArrow = styled(Arrow)`
+transition: all .2s ease-in-out; 
+stroke: ${props => props.theme.light};
+
+&.arrowUp {
+    transform: scaleX(-1);
+  }
+  &.arrowDown {
+    transform: scaleY(-1);
+  }
+`;
 
 function Sort({ sortAZ, sortZA, sortType, sortABV }) {
   const [toggled, setToggled] = useState(false);
@@ -18,38 +28,23 @@ function Sort({ sortAZ, sortZA, sortType, sortABV }) {
   }
 
   return (
-    <SortContainer>
-      <MainSortButton onClick={handleClick}>
-        <SortButtonStuff>
-          <SortButtonText>Sort</SortButtonText>
-          {toggled && (
-            <img
-              width="13px"
-              height="13px"
-              src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png"
-              alt=""
-            ></img>
-          )}
-          {!toggled && (
-            <img
-              width="20px"
-              src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png"
-              alt=""
-            />
-          )}
-        </SortButtonStuff>
-      </MainSortButton>
-      {/* if toggled = true, return these items: */}
+    <SortBar>
+      <SortBarSelect onClick={handleClick}>
+        <p>Sort</p>
+        {!toggled && <StyledArrow className="arrowDown" />}
+        {toggled && <StyledArrow className="arrowUp" />}
+      </SortBarSelect>
       {toggled && (
-        <SortButtonsContainer background-color="red">
-          <SortButton onClick={sortAZ}>A-Z</SortButton>
-          <SortButton onClick={sortZA}>Z-A</SortButton>
-          <SortButton onClick={sortType}>Type</SortButton>
-          <SortButton onClick={sortABV}>ABV</SortButton>
-        </SortButtonsContainer>
+        <SortBarDropdown>
+          <BtnSort onClick={sortAZ}>A-Z</BtnSort>
+          <BtnSort onClick={sortZA}>Z-A</BtnSort>
+          <BtnSort onClick={sortType}>Type</BtnSort>
+          <BtnSort onClick={sortABV}>ABV</BtnSort>
+        </SortBarDropdown>
       )}
-    </SortContainer>
+    </SortBar>
   );
 }
 
 export default Sort;
+ 
