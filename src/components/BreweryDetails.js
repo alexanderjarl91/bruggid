@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //icons
-import { ReactComponent as FacebookIcon } from "../img/facebook.svg";
-import { ReactComponent as InstagramIcon } from "../img/instagram.svg";
+import { ReactComponent as FacebookIcon } from "../img/Facebook.svg";
+import { ReactComponent as InstagramIcon } from "../img/Instagram.svg";
 import { ReactComponent as LocationIcon } from "../img/location.svg";
 import { ReactComponent as WebsiteIcon } from "../img/web.svg";
  
@@ -30,7 +30,7 @@ function BreweryDetails({ match }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        let response = await fetch("https://brugg-api.herokuapp.com/breweries");
+        let response = await fetch("https://dry-stream-05871.herokuapp.com/breweries");
         response = await response.json();
         console.log(match.params.breweryName, response, "asdfasdf");
         let foundBrewery = response.find(

@@ -30,8 +30,8 @@ function BreweriesNearYou({breweries, position}) {
         <ListContainer>
             {(position && nearestBreweries && nearestBreweries.length > 0) 
               ? nearestBreweries.map((brewery) => (
-                <Link key={brewery.id} to ={`/breweries/${brewery.name}`}>
-                    <ListCard key={brewery.name}>
+                <Link key={brewery.name} to ={`/breweries/${brewery.name}`}>
+                    <ListCard>
                         <ListCardInfo>
                             <ListCardTitle>{brewery.name}</ListCardTitle>
                         </ListCardInfo>
