@@ -62,13 +62,12 @@ function Map() {
     }, 3000);
   }
 
-  // Setting a marker and fly to your location if allowed
+  // Setting a marker and fly to user location if allowed
   function LocationMarker() {
-      const map = useMapEvents({
-      
-        locationfound(e) {
+    const map = useMapEvents({
+        
+      locationfound(e) {
           setPosition(e.latlng)
-          // Check if possible to make zoom and fly smoother
           map.setZoom(12)
           map.flyTo(e.latlng, map.getZoom())
         },
@@ -97,7 +96,6 @@ function Map() {
               ? breweries.map((brewery) => (
                 <div key={brewery.id}>
                   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
-                  {/* Breyta staðsetningu á popup miðað við marker */}
                   <Popup>
                     <img src={brewery.logoSrc} alt="" />
                     <strong>{brewery.name}</strong> <br /> {brewery.address}

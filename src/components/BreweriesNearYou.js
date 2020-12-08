@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as geolib from 'geolib';
 
+import { ListComponent } from "./styled/listViewStyled";
 
 function BreweriesNearYou({breweries, position}) {
     const [nearestBreweries, setNearestBreweries] = useState()
@@ -27,16 +28,17 @@ function BreweriesNearYou({breweries, position}) {
 
     return (
         <>
-            {(position && nearestBreweries && nearestBreweries.length > 0) 
-              ? nearestBreweries.map((brewery) => (
-                <div key={brewery.name}>
-                    <h2>{brewery.name}</h2> <h3>{getKm(brewery.dist)} km</h3>
-                </div>
-            ))
+            <ListComponent>
+                {(position && nearestBreweries && nearestBreweries.length > 0) 
+                ? nearestBreweries.map((brewery) => (
+                    <div key={brewery.name}>
+                        <h2>{brewery.name}</h2> <h3>{getKm(brewery.dist)} km</h3>
+                    </div>
+                ))
 
-            : <p>Waiting for your location</p>
-            }
-        
+                : <p>Waiting for your location</p>
+                }
+            </ListComponent>
         </>
     )
 }
