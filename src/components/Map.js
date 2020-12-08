@@ -7,7 +7,7 @@ import {
   Marker,
   Popup,
   useMapEvents,
-  ZoomControl
+  ZoomControl,
 } from "react-leaflet";
 import { Icon } from "leaflet";
 
@@ -18,22 +18,28 @@ import location from "../img/location-icon.svg";
 // Import components
 import BreweriesNearYou from "./BreweriesNearYou";
 import Nav from "./Nav";
-import { ListComponent, ListInfo, ListTitle, ListHeaders } from "./styled/listViewStyled";
+import {
+  ListComponent,
+  ListInfo,
+  ListTitle,
+  ListHeaders,
+} from "./styled/listViewStyled";
 import Header from "./Header";
 
 function Map() {
-    // Access token, style id and user name set in .env variable.
-    // const mapboxUrl = `https://api.mapbox.com/styles/v1/${process.env.REACT_APP_USER_NAME}/${process.env.REACT_APP_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_ACCESS_TOKEN}`
+  // Access token, style id and user name set in .env variable.
+  // const mapboxUrl = `https://api.mapbox.com/styles/v1/${process.env.REACT_APP_USER_NAME}/${process.env.REACT_APP_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_ACCESS_TOKEN}`
 
-    const userName = "bjorgg";
-    const styleId = "cki0d23hv26h01alu0fu4e7xb";
-    const accessToken = "pk.eyJ1IjoiYmpvcmdnIiwiYSI6ImNraTBjdjR2bTJ5dXMycGt6dGtobjgyZ2UifQ.eNui5MdJCiPoaQF3c6UgjA";
-    const mapboxUrl = `https://api.mapbox.com/styles/v1/${userName}/${styleId}/tiles/256/{z}/{x}/{y}@2x?access_token=${accessToken}`
+  const userName = "bjorgg";
+  const styleId = "cki0d23hv26h01alu0fu4e7xb";
+  const accessToken =
+    "pk.eyJ1IjoiYmpvcmdnIiwiYSI6ImNraTBjdjR2bTJ5dXMycGt6dGtobjgyZ2UifQ.eNui5MdJCiPoaQF3c6UgjA";
+  const mapboxUrl = `https://api.mapbox.com/styles/v1/${userName}/${styleId}/tiles/256/{z}/{x}/{y}@2x?access_token=${accessToken}`;
 
     const [position, setPosition] = useState(null)
     const [breweries, setBreweries] = useState();
 
-    useEffect(() => {
+  useEffect(() => {
     // Fetch from the Brugg API.
     fetch("https://dry-stream-05871.herokuapp.com/breweries")
       // Return json.
@@ -57,7 +63,7 @@ function Map() {
   const locationIcon = new Icon({
     iconUrl: location,
     iconSize: [25, 25],
-    popupAnchor:  [0, -12]
+    popupAnchor: [0, -12],
   });
 
   // When map is created, locate user after two seconds

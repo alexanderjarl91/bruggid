@@ -120,7 +120,8 @@ export const DropdownCard = styled.div`
 `
 
 export const DropdownInfo = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 90px auto;
     grid-column-rows: repeat(2, auto);
     gap: 6px;

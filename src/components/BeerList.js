@@ -103,7 +103,7 @@ function BeerList() {
           <ListTitle>Beers</ListTitle>
           <ListHeaders>
             <p>ABV / Size / Type</p>
-            {/* <p>Favorite</p> */}
+            <p>Love / Try</p>
           </ListHeaders>
         </ListInfo>
         <BeerListItem beers={filteredBeers} />
