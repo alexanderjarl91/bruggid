@@ -42,7 +42,7 @@ export const SortButton = styled.button`
   font-weight: bold;
   color: black;
   width: 50px;
-  background-color: #f9f9f9;
+  background-color: ${props => props.theme.light};
   border: none;
   border-radius: 5px;
   margin: 0.5rem;

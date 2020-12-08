@@ -14,6 +14,7 @@ import {
   ListCardImgContainer,
   ListCardImg,
 } from "./styled/listViewStyled";
+import { Distance, LocationWait } from "./styled/mapViewStyled";
 
 // Passing in breweries and position props from Map component
 function BreweriesNearYou({ breweries, position }) {
@@ -81,12 +82,17 @@ function BreweriesNearYou({ breweries, position }) {
                 <ListCardTitle>{brewery.name}</ListCardTitle>
                 <p>{brewery.address}</p>
               </ListCardInfo>
-              <p>{getKm(brewery.dist)} km</p>
+              <Distance>{getKm(brewery.dist)} km</Distance>
             </ListCard>
           </Link>
         ))
       ) : (
-        <p>Waiting for your location</p>
+        <LocationWait>
+        <p>No breweries near you can only mean two things.</p>
+        <p>Either you've travelled back in time before March 1st 1989 or we're still waiting for your location.</p>
+        {/* <p>Either you've travelled back in time to before March 1st 1989</p>
+        <p>or we're still waiting for your location.</p> */}
+        </LocationWait>
       )}
     </ListContainer>
   );

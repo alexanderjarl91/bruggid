@@ -4,8 +4,6 @@ import styled from "styled-components";
 export const ListView = styled.div`
     height: 100vh;
     width: 100vw;
-    ${'' /* display: flex;
-    flex-flow: column nowrap; */}
     display: grid;
     grid-template-row: repeat(2, auto);
     overflow: hidden;
@@ -15,7 +13,7 @@ export const ListView = styled.div`
 
 // List component
 export const ListComponent = styled.div`
-    background: #f9f9f9;
+    background: ${props => props.theme.light};
     border-radius: 20px 20px 0 0;
     ${'' /* height: 75vh; */}
     display: flex;

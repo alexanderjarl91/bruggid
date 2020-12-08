@@ -1,6 +1,7 @@
 // Import React hooks
 import React, { useState, useEffect } from "react";
 // Import dependencies
+import styled from "styled-components";
 import {
   MapContainer,
   TileLayer,
@@ -14,17 +15,29 @@ import { Icon } from "leaflet";
 // Import icons
 import beer from "../img/beer-bottle.svg";
 import location from "../img/location-icon.svg";
+import { ReactComponent as LocationIcon } from "../img/location-icon.svg";
 
 // Import components
 import BreweriesNearYou from "./BreweriesNearYou";
 import Nav from "./Nav";
+import Header from "./Header";
+
+//Import styles
 import {
   ListComponent,
   ListInfo,
   ListTitle,
   ListHeaders,
 } from "./styled/listViewStyled";
-import Header from "./Header";
+
+import { MapView } from "./styled/mapViewStyled";
+  
+// Location icon inline
+const StyledLocation = styled(LocationIcon)`
+  display: inline;
+  transform: scale(1.5);
+  margin: 0 6px;
+`;
 
 function Map() {
   // Access token, style id and user name set in .env variable.
@@ -97,6 +110,7 @@ function Map() {
     <>  
     <Header/>
       {/* Map */}
+      <MapView>
       <div id='mapid'>
           {/* Returning React-Leaflet map components with Mapbox tile layer */}
           <MapContainer center={[64.9841821, -18.1059013]} zoom={5} scrollWheelZoom={false} zoomControl={false} whenCreated={handleMapCreated}>
@@ -110,7 +124,7 @@ function Map() {
                 <div key={brewery.id}>
                   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
                   <Popup keepInView={true} className='popup-style'>
-                    {brewery.name} <br /> {brewery.address}
+                    <span className="popup-content-title">{brewery.name}</span> <br /> {brewery.address}
                   </Popup>
                 </Marker>
               </div>
@@ -127,15 +141,16 @@ function Map() {
           {/* Breweries near you */}
           <ListComponent>
             <ListInfo>
-              <ListTitle>Breweries Near You</ListTitle>
+              <ListTitle>Breweries near <StyledLocation/> you</ListTitle>
               <ListHeaders>
                 <p></p>
-                <p>Distance</p>
+                <p>Approx. Distance</p>
               </ListHeaders>
             </ListInfo>
             {/* Breweries near you component with position and breweries props */}
             <BreweriesNearYou position={position} breweries={breweries}/>
           </ListComponent>
+        </MapView>
       
     <Nav />
     </>
