@@ -2,15 +2,24 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Checkbox } from "../img/checkbox.svg";
 import LocalStorageButton from "./LocalStorageButton";
-import { mid } from "./styled/theme/orange";
+import { dark, mid } from "./styled/theme/orange";
 
 const StyledCheckbox= styled(Checkbox)`
     z-index: 2;
-    rect {
+    
+    rect,
+    path {
         fill: transparent;
     }
-    &.stored rect {
-        fill: ${mid};
+    
+    &.stored {
+        rect {
+            fill: ${mid};
+        }
+
+        path {
+            fill: ${dark};
+        }
     }
 `;
 
