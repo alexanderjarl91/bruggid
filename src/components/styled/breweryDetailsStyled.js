@@ -15,6 +15,13 @@ export const HeaderImage = styled.img`
   margin-bottom: 1rem;
 `;
 
+export const HeaderImageMask = styled.div`
+  width: 100%;
+  height: 100%;
+  clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+`
+
 export const HeaderTitle = styled.h4`
   font-family: "Rubik", sans-serif;
   font-weight: bold;

@@ -11,6 +11,7 @@ import {
   ZoomControl,
 } from "react-leaflet";
 import { Icon } from "leaflet";
+import { Link } from "react-router-dom";
 
 // Import icons
 import beer from "../img/beer-bottle.svg";
@@ -84,7 +85,7 @@ function Map() {
   function handleMapCreated(map) {
     setTimeout(() => {
       map.locate();
-    }, 2000);
+    }, 1000);
   }
 
   // Location marker component
@@ -100,7 +101,7 @@ function Map() {
       // If position has value, return a marker and a popup to that location
       return position === null ? null : (
         <Marker position={position} icon={locationIcon}>
-          <Popup keepInView={true} className='popup-style'>You are here</Popup>
+          <Popup keepInView={false} className='popup-style'>You are here</Popup>
         </Marker>
       );
   }
@@ -124,8 +125,8 @@ function Map() {
                breweries.map((brewery) => (
                 <div key={brewery.id}>
                   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
-                  <Popup keepInView={true} className='popup-style'>
-                    <span className="popup-content-title">{brewery.name}</span> <br /> {brewery.address}
+                  <Popup keepInView={false} className='popup-style'>
+                  <Link key={brewery.id} to ={`/breweries/${brewery.name}`}><span className="popup-content-title">{brewery.name}</span></Link> <br /> {brewery.address}
                   </Popup>
                 </Marker>
               </div>

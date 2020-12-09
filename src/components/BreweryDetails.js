@@ -10,6 +10,7 @@ import { ReactComponent as WebsiteIcon } from "../img/web.svg";
 import BeerListItem, { filterOutDuplicateBeers } from "./BeerListItem";
 import Nav from "./Nav";
 import Header from "./Header";
+
 //import styled componentsxs
 import {
   BreweryLogo,
