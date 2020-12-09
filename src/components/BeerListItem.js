@@ -16,6 +16,7 @@ import { BeerCard, BeerCardDropdown, BeerCardImg, BeerCardImgContainer, BeerCard
 
 
 const StyledArrow = styled(Arrow)`
+cursor: pointer;
 transition: all .2s ease-in-out;
 stroke: ${props => props.theme.mid};
 
@@ -27,13 +28,12 @@ stroke: ${props => props.theme.mid};
   }
 `;
 
-
 const StyledIconsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  cursor: pointer;
 `;
-
 
 
 export const filterOutDuplicateBeers = beers => beers.filter((beer, index, self) =>
@@ -70,8 +70,8 @@ function BeerListItem({ beers = [], showBreweryLink = true }) {
               </StyledIconsContainer>
             </BeerCardInfo>
             {expanded === i && <BeerCardDropdown>
+              <Link key={breweryName} to={`/breweries/${breweryName}`}><span>{breweryName}</span></Link>
               <p>{beerDescription}</p>
-              <Link key={breweryName} to={`/breweries/${breweryName}`}>by <span>{breweryName}</span></Link>
             </BeerCardDropdown>}
             <BeerCardSeeMore onClick={ (e) => {
               const id = e.target.id || '';
