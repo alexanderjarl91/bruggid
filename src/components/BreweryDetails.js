@@ -91,7 +91,7 @@ function BreweryDetails({ match }) {
         </BreweryInfo>
         <ListComponent>
           <ListInfo>
-          <ListTitle>Beers</ListTitle>
+          <ListTitle brewerypage>Beers</ListTitle>
             <ListHeaders>
               <p></p>
               <p>Love / Tried</p>
