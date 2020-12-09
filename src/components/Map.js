@@ -44,8 +44,6 @@ function Map() {
   // Access token, style id and user name set in .env variable.
   const mapboxUrl = `https://api.mapbox.com/styles/v1/${process.env.REACT_APP_USER_NAME}/${process.env.REACT_APP_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_ACCESS_TOKEN}`
 
-
-
   const [position, setPosition] = useState(null)
   const [breweries, setBreweries] = useState();
 
