@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 //icons
-import { ReactComponent as FacebookIcon } from "../img/facebook.svg";
-import { ReactComponent as InstagramIcon } from "../img/instagram.svg";
+import { ReactComponent as FacebookIcon } from "../img/Facebook.svg";
+import { ReactComponent as InstagramIcon } from "../img/Instagram.svg";
 import { ReactComponent as LocationIcon } from "../img/location.svg";
 import { ReactComponent as WebsiteIcon } from "../img/web.svg";
 
