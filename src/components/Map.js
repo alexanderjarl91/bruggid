@@ -11,6 +11,7 @@ import {
   ZoomControl,
 } from "react-leaflet";
 import { Icon } from "leaflet";
+import { Link } from "react-router-dom";
 
 // Import icons
 import beer from "../img/beer-bottle.svg";
@@ -125,7 +126,7 @@ function Map() {
                 <div key={brewery.id}>
                   <Marker position={[brewery.latitude, brewery.longitude]} icon={beerIcon}>
                   <Popup keepInView={false} className='popup-style'>
-                    <span className="popup-content-title">{brewery.name}</span> <br /> {brewery.address}
+                  <Link key={brewery.id} to ={`/breweries/${brewery.name}`}><span className="popup-content-title">{brewery.name}</span></Link> <br /> {brewery.address}
                   </Popup>
                 </Marker>
               </div>

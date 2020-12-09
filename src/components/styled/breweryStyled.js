@@ -32,6 +32,8 @@ export const BreweryLogo = styled.div`
     }
 `
 
+
+
 export const BreweryLogoContainer = styled.div`
     background: #ffffff;
     width: 100px;
