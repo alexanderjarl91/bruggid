@@ -70,8 +70,8 @@ function BeerListItem({ beers = [], showBreweryLink = true }) {
               </StyledIconsContainer>
             </BeerCardInfo>
             {expanded === i && <BeerCardDropdown>
-              <p>{beerDescription}</p>
-              <Link key={breweryName} to={`/breweries/${breweryName}`}>by <span>{breweryName}</span></Link>
+              <Link key={breweryName} to={`/breweries/${breweryName}`}> <span>{breweryName}</span></Link>
+              <p>{beerDescription}</p> 
             </BeerCardDropdown>}
             <BeerCardSeeMore onClick={ (e) => {
               const id = e.target.id || '';

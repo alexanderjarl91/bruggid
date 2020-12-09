@@ -42,8 +42,8 @@ export const ListInfo = styled.div`
 `
 
 export const ListTitle = styled.h2`
-    font-weight: bold;
-    font-size: 2rem;
+    font-weight: bold; 
+    font-size: 1.8rem;
 `
 
 export const ListHeaders = styled.div`
@@ -59,7 +59,7 @@ export const ListHeaders = styled.div`
 
 // Container for the list render
 export const ListContainer = styled.div`
-    overflow: scroll;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
     border-top: 1px solid #cdcdcd;
     color: ${props => props.theme.dark};

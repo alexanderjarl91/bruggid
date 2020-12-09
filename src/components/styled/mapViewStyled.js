@@ -27,7 +27,7 @@ export const MapComponent = styled.div`
 // List uses styles from listViewStyled
 // Breweries Near You Distance
 export const Distance = styled.h3`
-    font-size: 1.125rem;
+    font-size: .9rem;
     font-weight: bold;
     color: ${props => props.theme.accent};
 `
@@ -35,7 +35,7 @@ export const Distance = styled.h3`
 // Location
 export const LocationWait = styled.div`
     text-align: center;
-    margin: 12px;
+    margin: 24px;
     ${'' /* font-weight: bold; */}
     font-size: 1.125rem;
     color: ${props => props.theme.mid};
