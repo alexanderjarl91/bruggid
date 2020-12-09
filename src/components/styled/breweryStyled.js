@@ -12,11 +12,16 @@ export const BreweryView = styled.div`
         grid-template-columns: 2fr 1fr;
         grid-gap: 24px;
     }
+
+    ${'' /* Leyfa hæð 150vh þar sem hæð er minni en 700px svo hægt sé að sjá meira af bjórum í einu...*/}
+    @media (max-height: 700px) {
+        max-height: 150vh;
+    }
 `
 // Logo
 export const BreweryLogo = styled.div`
     width: 100%;
-    margin: 24px 0px 36px 0px;
+    margin: 24px 0px 24px 0px;
     display: flex;
     justify-content: center;
 
@@ -42,6 +47,11 @@ export const BreweryLogoContainer = styled.div`
         width: 200px;
         height: 200px;
         margin-bottom: 12px;
+    }
+
+    @media (max-height: 700px) {
+        height: 80px;
+        width: 80px;
     }
 `
 

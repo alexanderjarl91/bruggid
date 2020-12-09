@@ -31,23 +31,35 @@ export const ListComponent = styled.div`
     @media (min-width: 1024px) {
         grid-column: 1 / 2;
         grid-row: 1 / 3;
-        height: 90vh;
+        max-height: 90vh;
         align-self: end;
     }
+
+    @media (max-height: 700px) {
+    padding-bottom: 64px;
+  }
 `
 
 // List component header stuff
 export const ListInfo = styled.div`
-    margin: 24px 24px 4px 24px;
+    margin: 18px 24px 4px 24px;
 `
 
 export const ListTitle = styled.h2`
     font-weight: bold; 
     font-size: 1.8rem;
+
+    @media (max-width: 1024px) {
+        ${prop => {
+        if (prop.brewerypage) {
+            return "display: none;"
+        }
+    }}
+    }
 `
 
 export const ListHeaders = styled.div`
-    margin-top: 12px;
+    margin-top: 6px;
     display: flex;
     justify-content: space-between;
     font-size: 0.75rem;

@@ -49,6 +49,10 @@ cursor: pointer;
     font-weight: bold;
 
     transition: height 200ms ease-in-out;
+
+    @media (max-height: 700px) {
+        padding: 6px 24px;
+    }
 `
 
 //Text and arrow
@@ -63,22 +67,30 @@ export const SortBarSelect = styled.div`
 // Dropdown + button styles
 export const SortBarDropdown = styled.div`
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
+    justify-content: space-around;
     margin-top: 12px;
     padding-top: 12px;
     border-top: 2px solid ${props => props.theme.light};
+
+    @media (max-height: 700px) {
+        margin-top: 6px;
+    padding-top: 6px;
+    }
 `
 
 export const BtnSort = styled.button`
     appearance: none;
-    width: 100%;
+    width: 45%;
+    ${'' /* max-width: 50%; */}
     background: ${props => props.theme.light};
     border-radius: 20px;
-    padding: 12px;
+    padding: 6px 12px;
     border: none;
     font-weight: bold;
     color: ${props => props.theme.dark};
-    margin: 0 6px;
+    margin: 4px 0;
 `
 
 
