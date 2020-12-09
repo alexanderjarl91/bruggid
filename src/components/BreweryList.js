@@ -20,11 +20,12 @@ function BreweryList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let response = await fetch("https://dry-stream-05871.herokuapp.com/breweries");
-        response = await response.json();
-        setBreweries(response);
-        setFilteredBreweries(response);
-        console.log(response);
+        const response = await fetch("https://dry-stream-05871.herokuapp.com/breweries");
+        const allBreweries = await response.json();
+        const allBreweriesRandom = allBreweries.sort(() => Math.random() - 0.5)
+        setBreweries(allBreweriesRandom);
+        setFilteredBreweries(allBreweriesRandom);
+        console.log(allBreweriesRandom);
       } catch (err) {
         alert(err);
       }

@@ -60,7 +60,7 @@ function BreweriesNearYou({ breweries, position }) {
   // function and Math.round to return only one decimal
   function getKm(originalDistance) {
     const distance = geolib.convertDistance(originalDistance, "km");
-    return Math.round(distance * 10) / 10;
+    return Math.round(distance * 10) / 10; 
   }
 
   return (

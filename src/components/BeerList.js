@@ -25,10 +25,11 @@ function BeerList() {
         const allBeers = filterOutDuplicateBeers(breweries.map(brewery => 
             brewery.catalog.map(beer => ({...beer, breweryName: brewery.name}))
           ).flat());
-
-        setBeers(allBeers);
-        setFilteredBeers(allBeers);
-        console.log({allBeers});
+        
+        const allBeersRandom = allBeers.sort(() => Math.random() - 0.5)
+        setBeers(allBeersRandom);
+        setFilteredBeers(allBeersRandom);
+        console.log(allBeersRandom);
       } catch (err) {
         alert(err);
       }

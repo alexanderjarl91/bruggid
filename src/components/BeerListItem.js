@@ -55,7 +55,7 @@ function BeerListItem({ beers = [], showBreweryLink = true }) {
       {beers.map((beer, i) => {
         const {beerName, beerABV, beerImg, beerType, beerVol, beerDescription, breweryName} = beer;
         return (
-          <BeerCard className={expanded === i ? "expanded" : "collapsed"} >
+          <BeerCard key={beerName} className={expanded === i ? "expanded" : "collapsed"} >
             <BeerCardImgContainer>
               <BeerCardImg src={beerImg} alt="" />
             </BeerCardImgContainer>
