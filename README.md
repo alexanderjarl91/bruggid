@@ -1,75 +1,43 @@
-Map attribution: Leaflet | Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox
-https://www.openstreetmap.org/
-https://creativecommons.org/licenses/by-sa/2.0/
-https://www.mapbox.com/
+# Module 4 - Connecting the world
+## Öl, Icelandic breers and breweries
 
-# Getting Started with Create React App
+Welcome to our Module 4 group assignment for Webdevelopment at Reykjavík Technical School.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this project we worked with API's, React, Packages, modules and bundlers, UX and much more.
 
-## Available Scripts
+Our web-application is all about Icelandic beers and breweries. The frontpage renders a map with your location(optional) and it shows you the nearest breweries to you. You can flip and sort through a lists of all beers or breweries. Each brewery has its own information page containing a list with all of their beers. In the beer list you can toggle heart or checkbox for each beer to keep track of what you have loved and what you have tried. 
 
-In the project directory, you can run:
+We hope you like it!
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
++ Html can be found in [public/index.html](public/index.html).
++ All Javascript is in [src folder](src) with comments
+> + [index.js](src/index.js) 
+> + [App.js](src/App.js)
++ All js components are in [Components folder](src/components)
++ All js styles are in [Styled folder](src/components/styled)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Live Demo
+Live demo of the page from Surge can be found here: [Öl](place link here)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Recources
+This project was made with 
++ [Create React App](https://reactjs.org/docs/create-a-new-react-app.html)
++ Custom made API [Place link here](place link here)
++ Map attribution: Leaflet | Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox
+> + https://www.openstreetmap.org/
+> + https://creativecommons.org/licenses/by-sa/2.0/
+> + https://www.mapbox.com/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authors
+This project was an awesome collaboration by these upcoming developers and designer!
++ [Alexander](https://github.com/alexanderjarl91)
++ [Bjorg](https://github.com/bjorgg)
++ [Iris Elva](https://github.com/iriselva)
++ [Jakob](https://github.com/jseinarsson)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
