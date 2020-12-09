@@ -69,13 +69,22 @@ function BreweryDetails({ match }) {
             <p>{brewery.address}</p>
           </BreweryInfoTitle>
           <BreweryInfoLinks>
-            <a href={brewery.webUrl}>
+            <a href={brewery.webUrl}
+              rel="noreferrer"
+              target="_blank"
+                >
               <WebsiteIcon />
             </a>
-            <a href={brewery.facebookUrl}>
+            <a href={brewery.facebookUrl}
+              rel="noreferrer"
+              target="_blank"
+              >
               <FacebookIcon />
             </a>
-            <a href={brewery.instagramUrl}>
+            <a href={brewery.instagramUrl}
+              rel="noreferrer"
+              target="_blank"
+              >
               <InstagramIcon />
             </a>
             <a
