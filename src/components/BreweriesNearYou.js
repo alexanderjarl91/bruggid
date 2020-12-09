@@ -47,7 +47,7 @@ function BreweriesNearYou({ breweries, position }) {
       // Sorting the array to get nearest first
       .sort((a, b) => a.dist - b.dist);
     // Slicing the nearest four breweries from the array
-    const copyOfNearest = nearest.slice(0, 4);
+    const copyOfNearest = nearest.slice(0, 5);
     
     // Setting the NearestBreweries state to the sliced array
     setNearestBreweries(copyOfNearest);

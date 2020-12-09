@@ -37,6 +37,7 @@ export const SearchBar = styled.input`
 
 // Sort bar
 export const SortBar = styled.div`
+cursor: pointer;
     background: ${props => props.theme.dark};
     margin: 24px;
     display: flex;
