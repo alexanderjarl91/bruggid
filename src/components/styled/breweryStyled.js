@@ -29,8 +29,8 @@ export const BreweryLogo = styled.div`
 
 export const BreweryLogoContainer = styled.div`
     background: #ffffff;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,7 +73,7 @@ export const BreweryInfoTitle = styled.div`
     & h2 {
         color: ${props => props.theme.light};
         text-transform: uppercase;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: bold;
         margin: 6px 0;
     }
@@ -84,7 +84,7 @@ export const BreweryInfoTitle = styled.div`
 `
 
 export const BreweryInfoDesc = styled.div`
-    overflow: scroll;
+    overflow: auto;
 
     & p {
         padding-bottom: 12px;
@@ -100,8 +100,9 @@ export const BreweryInfoLinks = styled.div`
     margin: 12px;
 
     & a {
-        margin-left: 6px;
-        margin-right: 6px;
+        
+        margin-left: 9px;
+        margin-right: 9px;
     }
 `
 

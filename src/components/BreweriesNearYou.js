@@ -31,10 +31,10 @@ function BreweriesNearYou({ breweries, position }) {
           latitude: brewery.latitude,
           longitude: brewery.longitude,
         };
-        // Returning brewery name, address, logo, id, coordinates and distance in meters
+        // Returning brewery name, type, logo, id, coordinates and distance in meters
         return {
           name: brewery.name,
-          address: brewery.address,
+          type: brewery.type,
           logoSrc: brewery.logoSrc,
           id: brewery.id,
           breweryCoord,
@@ -46,12 +46,12 @@ function BreweriesNearYou({ breweries, position }) {
       })
       // Sorting the array to get nearest first
       .sort((a, b) => a.dist - b.dist);
-    // Slicing the nearest three breweries from the array
-    const copyOfNearest = nearest.slice(0, 3);
+    // Slicing the nearest four breweries from the array
+    const copyOfNearest = nearest.slice(0, 4);
     
     // Setting the NearestBreweries state to the sliced array
     setNearestBreweries(copyOfNearest);
-    // Pass an array to the hook. React will apply the effect when those values changes.
+    // Pass an array to the hook. React will apply the effect when these values change.
   }, [position, breweries]);
 
   console.log(nearestBreweries);
@@ -66,7 +66,7 @@ function BreweriesNearYou({ breweries, position }) {
   return (
     <ListContainer>
         {/* If there is a position and nearestBreweries has objects map the
-        array and return each brewery's logo, name, address and distance from 
+        array and return each brewery's logo, type, address and distance from 
         user in km, else return a message. */}
       {position && nearestBreweries && nearestBreweries.length > 0 ? (
         nearestBreweries.map((brewery) => (
@@ -80,7 +80,7 @@ function BreweriesNearYou({ breweries, position }) {
               </ListCardImgContainer>
               <ListCardInfo>
                 <ListCardTitle>{brewery.name}</ListCardTitle>
-                <p>{brewery.address}</p>
+                <p>{brewery.type}</p>
               </ListCardInfo>
               <Distance>{getKm(brewery.dist)} km</Distance>
             </ListCard>

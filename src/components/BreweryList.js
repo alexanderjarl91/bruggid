@@ -102,7 +102,7 @@ function BreweryList() {
         <ListTitle>Breweries</ListTitle>
         <ListHeaders>
           <p>Brewery Type</p>
-          <p>No. Beers</p>
+          <p>Beer count</p>
         </ListHeaders>
       </ListInfo>
         <BreweryListItem data={filteredBreweries} />

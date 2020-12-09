@@ -44,6 +44,7 @@ h1 {
 p {
   margin: 0;
   padding: 0;
+  line-height: 1.3rem;
 }
 
 ul {
@@ -84,9 +85,8 @@ ul {
 
 .popup-style .leaflet-popup-content {
   /* margin: 11px 5px 11px 20px; */
-  margin: 12px 6px;
+  margin: 12px 14px 12px 6px;
   font-family: "Rubik", sans-serif;
-  /* font-weight: bold; */
   font-size: 0.8rem;
   width: 100%;
   text-align: center;

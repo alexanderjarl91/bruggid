@@ -46,9 +46,10 @@ export const BeerCardImg = styled.img`
 export const BeerCardDropdown = styled.div`
     grid-area: desc;
     margin-bottom: 12px;
-
+    
     & p {
-        margin-top: 12px;
+        margin-top: 6px;
+        max-width: 800px
     }
 
     & span {
