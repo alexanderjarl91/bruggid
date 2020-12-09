@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 // Import SVG
 import { ReactComponent as Arrow } from "../img/arrow.svg";
+import { ReactComponent as MissingBeer } from "../img/missingbeer.svg";
 
 // Import components
 import FavoriteBeerButton from "./FavoriteBeerButton";
@@ -35,6 +36,13 @@ const StyledIconsContainer = styled.div`
   cursor: pointer;
 `;
 
+const MissingBeerImg = styled(MissingBeer)`
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+`
+
+
 
 export const filterOutDuplicateBeers = beers => beers.filter((beer, index, self) =>
           index === self.findIndex((t) => (
@@ -57,7 +65,7 @@ function BeerListItem({ beers = [], showBreweryLink = true }) {
         return (
           <BeerCard key={id} className={expanded === i ? "expanded" : "collapsed"} >
             <BeerCardImgContainer>
-              <BeerCardImg src={beerImg} alt="" />
+              {beerImg.length === 0 ? <MissingBeerImg/> : <BeerCardImg src={beerImg} alt="" />}
             </BeerCardImgContainer>
             <BeerCardInfo>
               <ListCardInfo>
