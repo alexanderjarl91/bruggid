@@ -5,8 +5,8 @@ import Header from "./Header";
 import Sort from "./Sort";
 
 //import styled components
-import { SearchBar, SearchComponent, SortBar } from "./styled/searchComponentStyled";
-import { ListComponent, ListView, ListInfo, ListTitle, ListHeaders, ListContainer } from "./styled/listViewStyled";
+import { SearchBar, SearchComponent } from "./styled/searchComponentStyled";
+import { ListComponent, ListView, ListInfo, ListTitle, ListHeaders } from "./styled/listViewStyled";
 
 
 function BreweryList() {
