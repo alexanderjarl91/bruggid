@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Heart } from "../img/favoriteHeart.svg";
 import LocalStorageButton from "./LocalStorageButton";

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Checkbox } from "../img/checkbox.svg";
 import LocalStorageButton from "./LocalStorageButton";

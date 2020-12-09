@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import BreweryListItem from "./BreweryListItem";
 import Nav from "./Nav";
 import Header from "./Header";
