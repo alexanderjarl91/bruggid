@@ -15,7 +15,7 @@ export const BreweryView = styled.div`
 
     ${'' /* Leyfa hæð 150vh þar sem hæð er minni en 700px svo hægt sé að sjá meira af bjórum í einu...*/}
     @media (max-height: 700px) {
-        height: 150vh;
+        max-height: 150vh;
     }
 `
 // Logo
