@@ -81,7 +81,7 @@ function Map() {
     popupAnchor: [0, -12],
   });
 
-  // When map is created, locate user after two seconds
+  // When map is created, locate user after one seconds
   function handleMapCreated(map) {
     setTimeout(() => {
       map.locate();
