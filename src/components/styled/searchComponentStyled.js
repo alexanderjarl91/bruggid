@@ -5,6 +5,11 @@ export const SearchComponent = styled.div`
     color: ${props => props.theme.light};
     display: flex;
     flex-flow: column nowrap;
+
+    @media (min-width: 1024px) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+    }
 `
 // Search bar
 export const SearchBar = styled.input`

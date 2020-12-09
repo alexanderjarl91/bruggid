@@ -6,10 +6,6 @@ import Header from "./Header";
 import Sort from "./Sort";
 
 //import styled components
-// import { BackBtn } from "./styled/index";
-// import { SearchBar, HeaderContainer } from "./styled/SearchBarStyled";
-// import { ListContainer, ListHeader, ListHeaderText } from "./styled/listStyled";
-
 import { SearchBar, SearchComponent, SortBar } from "./styled/searchComponentStyled";
 import { ListComponent, ListView, ListInfo, ListTitle, ListHeaders, ListContainer } from "./styled/listViewStyled";
 

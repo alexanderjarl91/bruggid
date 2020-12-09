@@ -5,8 +5,15 @@ export const ListView = styled.div`
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-row: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
     overflow: hidden;
+
+    @media (min-width: 1024px) {
+        padding-left: 120px;
+        grid-template-rows: 1;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 24px;
+    }
 `
 
 // See searchBarStyled.js for search/sort filter portion of list view
@@ -15,12 +22,18 @@ export const ListView = styled.div`
 export const ListComponent = styled.div`
     background: ${props => props.theme.light};
     border-radius: 20px 20px 0 0;
-    ${'' /* height: 75vh; */}
     display: flex;
     flex-direction: column;
     overflow: hidden;
     padding-bottom: 88px;
     filter: drop-shadow(0px -2px 6px rgba(42, 42, 42, 0.4));
+
+    @media (min-width: 1024px) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+        height: 90vh;
+        align-self: end;
+    }
 `
 
 // List component header stuff

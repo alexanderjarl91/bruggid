@@ -1,17 +1,24 @@
 import React from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+//import logo
+import { ReactComponent as Logo } from "../img/LOGO.svg";
 
 //import styled components
 import { HeaderLogo } from "./styled/navItemsStyled";
 
+const StyledLogo = styled(Logo)`
+  height: 60%;
+`
+
 function Header() {
   return (
-    <HeaderLogo>
-        <Link to="/">
-            {/* <img src="../img/LOGO.svg"/> */}
-            <img src="https://svgshare.com/i/S2b.svg" />
-        </Link>
-    </HeaderLogo>
+    <Link to="/">
+      <HeaderLogo>
+        <StyledLogo/>
+      </HeaderLogo>
+    </Link>
   );
 }
 

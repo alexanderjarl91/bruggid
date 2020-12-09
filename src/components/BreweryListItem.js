@@ -3,14 +3,6 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
 //import styled components
-import {
-  ListItem,
-  ListImage,
-  NameAndTypeContainer,
-  Name,
-  Type,
-  RightValue,
-} from "./styled/listStyled";
 import { ListCard, ListCardInfo, ListCardTitle, ListContainer, ListCardImgContainer, ListCardImg } from "./styled/listViewStyled";
 
 // const StyledBreweryInfo = styled.div`

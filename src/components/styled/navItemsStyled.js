@@ -12,9 +12,10 @@ export const HeaderLogo = styled.header`
   justify-content: center;
   z-index: 999;
 
-  & img {
-    height: 60%; 
-  }
+  @media (min-width: 1024px) {
+    height: 100px;
+    width: 100px;
+    }
 `
 
 // Navbar at bottom of view
@@ -34,6 +35,10 @@ export const NavBar = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 1024px) {
+    padding: 0 160px;
+  }
 `
 
 export const NavBtnContainer = styled.div`

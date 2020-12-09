@@ -6,6 +6,12 @@ export const BreweryView = styled.div`
     display: grid;
     grid-template-row: repeat(3, auto);
     overflow: hidden;
+
+    @media (min-width: 1024px) {
+        padding-left: 120px;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 24px;
+    }
 `
 // Logo
 export const BreweryLogo = styled.div`
@@ -13,6 +19,12 @@ export const BreweryLogo = styled.div`
     margin: 24px 0px 36px 0px;
     display: flex;
     justify-content: center;
+
+    @media (min-width: 1024px) {
+        margin: 0;
+        align-items: flex-end;
+        padding-right: 24px;
+    }
 `
 
 export const BreweryLogoContainer = styled.div`
@@ -25,6 +37,12 @@ export const BreweryLogoContainer = styled.div`
     border: 2px solid ${props => props.theme.accent};
     border-radius: 50%;
     box-shadow: 0 4px 0 ${props=>props.theme.accent};
+
+    @media (min-width: 1024px) {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 12px;
+    }
 `
 
 export const BreweryLogoImg = styled.img`
@@ -40,33 +58,40 @@ export const BreweryInfo = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+
+    @media (min-width: 1024px) {
+        margin-right: 24px;
+    }
 `
 
 export const BreweryInfoTitle = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    text-align: center;
 
     & h2 {
         color: ${props => props.theme.light};
         text-transform: uppercase;
         font-size: 2rem;
         font-weight: bold;
+        margin: 6px 0;
     }
     
     & p {
         font-weight: bold;
-        margin-bottom: 6px;
     }
 `
 
 export const BreweryInfoDesc = styled.div`
-    max-height: 120px;
     overflow: scroll;
-    -webkit-overflow-scrolling: touch;
 
     & p {
         padding-bottom: 12px;
+    }
+
+    @media (max-width: 1024px) {
+        display: none;
     }
 `
 

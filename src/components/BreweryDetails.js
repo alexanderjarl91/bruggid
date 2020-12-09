@@ -65,6 +65,7 @@ function BreweryDetails({ match }) {
           <BreweryInfoTitle>
             <p>Est. {brewery.established}</p>
             <h2>{brewery.name}</h2>
+            <p>{brewery.address}</p>
           </BreweryInfoTitle>
           <BreweryInfoLinks>
             <a href={brewery.webUrl}>
@@ -90,10 +91,10 @@ function BreweryDetails({ match }) {
         </BreweryInfo>
         <ListComponent>
           <ListInfo>
-            <ListTitle>Beers</ListTitle>
+          <ListTitle>Beers</ListTitle>
             <ListHeaders>
-              <p>ABV / Size / Type</p>
-              {/* <p>Favorite</p> */}
+              <p></p>
+              <p>Love / Tried</p>
             </ListHeaders>
           </ListInfo>
           <BeerListItem
@@ -104,40 +105,6 @@ function BreweryDetails({ match }) {
       </BreweryView>
       <Nav />
     </>
-
-    //     <div>
-    //       <Link to="/breweries">
-    //         <BackBtn />
-    //       </Link>
-    //       <Header>
-    //         <HeaderImage src={brewery.logoSrc} />
-    //         <HeaderTitle>{brewery.name}</HeaderTitle>
-    //       </Header>
-    //       <InfoContainer>
-    //         <Founded>Founded in {brewery.established}</Founded>
-    //         <Description>{brewery.about}</Description>
-
-    //         <LinkContainer>
-    //           <a href={brewery.webUrl}>
-    //             <WebsiteIcon />
-    //           </a>
-    //           <a href={brewery.facebookUrl}>
-    //             <FacebookIcon />
-    //           </a>
-    //           <a href={brewery.instagramUrl}>
-    //             <InstagramIcon/>
-    //           </a>
-    //           <a
-    //             href={`https://www.google.com/maps/@${brewery.latitude},${brewery.longitude},15z`}
-    //             rel="noreferrer"
-    //             target="_blank"
-    //           >
-    // <LocationIcon />         </a>
-    //         </LinkContainer>
-    //       </InfoContainer>
-    //       {/* Listing beers after brewery, without link */}
-    //       <BeerListItem beers={filterOutDuplicateBeers(brewery.catalog)} showBreweryLink={false} />
-    //     </div>
   );
 }
 

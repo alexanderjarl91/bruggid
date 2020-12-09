@@ -7,11 +7,21 @@ export const MapView = styled.div`
     display: grid;
     grid-template-row: repeat(2, 1fr);
     overflow: hidden;
+    background: #252525;
+
+    @media (min-width: 1024px) {
+        padding-left: 120px;
+        grid-template-rows: 1;
+        grid-template-columns: 1fr 1fr;
+    }
 `
 
 export const MapComponent = styled.div`
     min-height: 30vh;
-    background: orange;
+
+    @media (min-width: 1024px) {
+        height: 100vh;
+    }
 `
 
 // List uses styles from listViewStyled

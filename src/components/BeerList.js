@@ -8,10 +8,6 @@ import BeerListItem, {filterOutDuplicateBeers} from "./BeerListItem";
 import SortBeers from "./SortBeers";
 
 //import styled components
-// import { BackBtn } from "./styled";
-// import { HeaderContainer, SearchBar } from "./styled/SearchBarStyled";
-// import { ListHeader, ListHeaderText, ListContainer } from "./styled/listStyled";
-
 import { SearchBar, SearchComponent } from "./styled/searchComponentStyled";
 import { ListComponent, ListView, ListInfo, ListTitle, ListHeaders } from "./styled/listViewStyled";
 
