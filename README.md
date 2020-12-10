@@ -1,5 +1,5 @@
 # Module 4 - Connecting the world
-## Öl, Icelandic breers and breweries
+## Öl, Icelandic beers and breweries
 
 Welcome to our Module 4 group assignment for Webdevelopment at Reykjavík Technical School.
 
@@ -20,17 +20,23 @@ We hope you like it!
 
 
 ## Live Demo
-Live demo of the page from Surge can be found here: [Öl](place link here)
+Live demo of the page from Surge can be found here: [Öl Iceland](https://oliceland.netlify.app/)
 
 
 ## Recources
 This project was made with 
 + [Create React App](https://reactjs.org/docs/create-a-new-react-app.html)
-+ Custom made API [Place link here](place link here)
+> + React Router
+> + React Styled Components
+> + React Leaflet
++ Custom made API [Brugg API](https://brugg-api.herokuapp.com/)
 + Map attribution: Leaflet | Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox
 > + https://www.openstreetmap.org/
 > + https://creativecommons.org/licenses/by-sa/2.0/
 > + https://www.mapbox.com/
++ Geolib
++ Netlify
++ Yarn
 
 
 ## Authors
