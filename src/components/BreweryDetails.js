@@ -88,7 +88,7 @@ function BreweryDetails({ match }) {
               <InstagramIcon />
             </a>
             <a
-              href={`https://www.google.com/maps/@${brewery.latitude},${brewery.longitude},15z`}
+              href={`https://www.google.com/maps/search/${brewery.name}`}
               rel="noreferrer"
               target="_blank"
             >
